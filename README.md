@@ -20,9 +20,17 @@ The main considerations for sensor selection is cost and the ready availability 
 
 EMMA has two main outputs: a buzzer and a tri-colour led. There is also a relay output (expandable) to trigger external devices or actions. The program mas also be customised to use IFTTT and interface with IoT devices.
 
+EMMA is a project of Prof. Jonathan Isip at the University of the Philippines School of Library and Information Studies (UP SLIS).
+
 ## System Requirements
-- Raspberry Pi model 3 B+ or later
+- Raspberry Pi 3 B+ or later
 - 3A power supply or higher
 - Sensor modules
 
-EMMA is a project of Prof. Jonathan Isip at the University of the Philippines School of Library and Information Studies (UP SLIS).
+## Known Limitations
+Power - the system is limited by a wired power connection to the RPi. This makes it susceptible to power outages and limits placement options. A PiJuice HAT or similar device can conceivably be attached to provide battery power but this would not last more than a day before needing recharging.
+
+Thermals - The RPi is a computer which emits heat. The temperature sensors should not be placed in closed proximity to the board. Use a fan to dissipate heat to the room at large. If monitoring an enclosed space such as a display case use cable connectors to keep sensors inside the case and the RPi outside.
+
+Sensor calibration - The system readings are limited by the accuracy of the sensor modules. These sensors drift over time due to their physical and chemical characteristics. The chosen low-cost sensor modules cannot be easily recalibrated. Set up the build such that these modules can easily be swapped with new ones. Regularly compare readings with professional meters to 
+check if still acceptable. If professional meters are not available sanity check the readings and remember that for most physical media temperature and humidity fluctuation causes more damage than sustained high or low temperatures. 
