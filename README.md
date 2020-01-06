@@ -9,10 +9,10 @@ EMMA is based on the Raspberry Pi, chosen for its widespread availability, ease 
 The sensors are chosen given a desired set of environmental conditions to be monitored, namely:
 - temperature (degrees Celsius)
 - relative humidity (%RH)
-- visible light level (lux)
-- UV light level (WHO UV Index)
-- shock / vibration (g)
-- ambient noise level (relative scale)
+- visible light level / illuminance (lux)
+- UV light level (milliwatts per square meter converted from Global UV index)
+- acceleration / shock (g)
+- ambient noise level (decibel)
 - air quality / smoke / combustible gas (relative scale converted to ppm)
 - user / visitor count (integer)
 
@@ -20,17 +20,17 @@ The main considerations for sensor selection is cost and the ready availability 
 
 EMMA has two main outputs: a buzzer and a tri-colour led. There is also a relay output (expandable) to trigger external devices or actions. The program mas also be customised to use IFTTT and interface with IoT devices.
 
-EMMA is a project of Prof. Jonathan Isip at the University of the Philippines School of Library and Information Studies (UP SLIS).
+EMMA is a project of Prof. Jonathan Isip at the University of the Philippines School of Library and Information Studies (UP SLIS). This is a hard fork of UP SLIS' libhat project used as a teaching tool for the media materials undergraduate course.
 
 ## System Requirements
 - Raspberry Pi 3 B+ or later
 - 3A power supply or higher
 - Sensor modules
+- Database server
 
 ## Known Limitations
 Power - the system is limited by a wired power connection to the RPi. This makes it susceptible to power outages and limits placement options. A PiJuice HAT or similar device can conceivably be attached to provide battery power but this would not last more than a day before needing recharging.
 
 Thermals - The RPi is a computer which emits heat. The temperature sensors should not be placed in closed proximity to the board. Use a fan to dissipate heat to the room at large. If monitoring an enclosed space such as a display case use cable connectors to keep sensors inside the case and the RPi outside.
 
-Sensor calibration - The system readings are limited by the accuracy of the sensor modules. These sensors drift over time due to their physical and chemical characteristics. The chosen low-cost sensor modules cannot be easily recalibrated. Set up the build such that these modules can easily be swapped with new ones. Regularly compare readings with professional meters to 
-check if still acceptable. If professional meters are not available sanity check the readings and remember that for most physical media temperature and humidity fluctuation causes more damage than sustained high or low temperatures. The code also relies on redundancy and sensor diversity to validate the accuracy of readings. E.g. Temperature is read from DS18B20+, DHT11, and DHT22 sensors. At least two of the readings should be within 0.5 degrees Celsius of each other for the measurement to be considered valid and logged to the database.
+Sensor calibration - The system readings are limited by the accuracy of the sensor modules. These sensors drift over time due to their physical and chemical characteristics. The chosen low-cost sensor modules cannot be easily recalibrated. Set up the build such that these modules can easily be swapped with new ones. Regularly compare readings with professional meters to check if still acceptable. If professional meters are not available sanity check the readings and refer to other off-the-shelf instrumentation such as handheld thermometers. The code also relies on redundancy and sensor diversity to validate the accuracy of readings for environmental components with absolute values. E.g. Temperature is read from DS18B20+, DHT22, HTU21D, and MCP9808 sensors. At least two of the readings should be within 0.5 degrees Celsius of each other for the measurement to be considered valid and logged to the database.
