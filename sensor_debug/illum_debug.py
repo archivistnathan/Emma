@@ -183,12 +183,12 @@ def read_uv():
         uvrel = float(readU16LE(0x60,0x2C))/100
         vis = float(readU16LE(0x60,0x22))
         uvabs = float(readU16LE(0x60,0x2C))*float(readU16LE(0x60,0x22))/100000
-        print 'UV Relative Index : ',uvrel
-        print 'UV Absolute : ',uvabs
-        print 'Vis + IR : ',vis
-        print 'IR       : ',float(readU16LE(0x60,0x24))
-        print 'Proximity: ',float(readU16LE(0x60,0x26))
-        print 'Irr W/m  : ',round(readU16LE(0x60,0x24)*0.0079,2)
+        print 'SI1145 UV Relative Index : ',uvrel
+        print 'SI1145 UV Absolute       : ',uvabs
+        print 'SI1145 Vis + IR          : ',vis
+        print 'SI1145 IR                : ',float(readU16LE(0x60,0x24))
+        print 'SI1145 Proximity         : ',float(readU16LE(0x60,0x26))
+        print 'SI1145 Irr W/m           : ',round(readU16LE(0x60,0x24)*0.0079,2)
 
 reset()
 calibration()
