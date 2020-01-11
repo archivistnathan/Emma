@@ -38,7 +38,7 @@ def readLight(addr=BHSEN):
   data = bus.read_i2c_block_data(addr,ONE_TIME_HIGH_RES_MODE)
   return convertToNumber(data)
  
-print "Light Level : " + str(readLight()) + " lux"
+print "BH1750 Light Level : " + str(readLight()) + " lux"
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get visible illuminance from TSL2561 using I2C 0x39
@@ -69,6 +69,6 @@ ch0 = data[1] * 256 + data[0]
 ch1 = data1[1] * 256 + data1[0]
 
 # Output data to screen
-print "Full Spectrum(IR + Visible) :%d lux" %ch0
-print "Infrared Value :%d lux" %ch1
-print "Visible Value :%d lux" %(ch0 - ch1)
+print "TSL2561 Full Spectrum(IR + Visible) :%d lux" %ch0
+print "TSL2561 Infrared Value :%d lux" %ch1
+print "TSL2561 Visible Value :%d lux" %(ch0 - ch1)
