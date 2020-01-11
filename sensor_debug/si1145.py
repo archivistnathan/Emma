@@ -64,8 +64,8 @@ def read_uv():
         uvrel = readU16LE(0x60,0x2C)/100
         vis = readU16LE(0x60,0x22)
         uvabs = float((readU16LE(0x60,0x2C)*readU16LE(0x60,0x22))/100000)
-        print 'UV Relative Index : %.4f',uvrel
-        print 'UV Absolute : ',uvabs
+        print 'UV Relative Index : ',uvrel
+        print "UV Absolute : %.4f",%uvabs
         print 'Vis + IR : ',vis
         print 'IR       : ',readU16LE(0x60,0x24)
         print 'Proximity: ',readU16LE(0x60,0x26)
