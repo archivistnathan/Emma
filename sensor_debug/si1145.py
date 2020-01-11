@@ -61,15 +61,15 @@ def readU16LE(address, register):
 
 
 def read_uv():
-        uvrel = readU16LE(0x60,0x2C)/100
-        vis = readU16LE(0x60,0x22)
-        uvabs = float((readU16LE(0x60,0x2C)*readU16LE(0x60,0x22))/100000)
+        uvrel = float(readU16LE(0x60,0x2C))/100
+        vis = float(readU16LE(0x60,0x22))
+        uvabs = float(readU16LE(0x60,0x2C))*float(readU16LE(0x60,0x22))/100000)
         print 'UV Relative Index : ',uvrel
-        print 'UV Absolute : ',float(uvabs)
+        print 'UV Absolute : ',uvabs
         print 'Vis + IR : ',vis
-        print 'IR       : ',readU16LE(0x60,0x24)
-        print 'Proximity: ',readU16LE(0x60,0x26)
-        #print 'Irr W/m  : ',round(readU16LE(0x60,0x24)*0.0079,2)
+        print 'IR       : ',float(readU16LE(0x60,0x24))
+        print 'Proximity: ',float(readU16LE(0x60,0x26))
+        print 'Irr W/m  : ',round(readU16LE(0x60,0x24)*0.0079,2)
 
 
 
