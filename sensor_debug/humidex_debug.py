@@ -138,9 +138,9 @@ class HTU21D:
 
 if __name__ == '__main__':
 	htu = HTU21D(1)
-    htutemp = htu.read_temperature()
-    htuhum = htu.read_humidity()
-    print "Temperature from HTU21D is    : %.2f C" %htutemp
+	htutemp = htu.read_temperature()
+	htuhum = htu.read_humidity()
+	print "Temperature from HTU21D is    : %.2f C" %htutemp
 	print "Humidity from HTU21D is    : %.2f RH" %htuhum
 
 
