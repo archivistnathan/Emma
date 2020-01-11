@@ -151,7 +151,7 @@ if __name__ == '__main__':
 # focuses on value from MCP9008 as sensor with highest accuracy according to datasheet
 if ((abs(mcptemp - dstemp) < 0.3) or (abs(mcptemp - dhttemp) < 0.3) or (abs(mcptemp - htutemp) < 0.3)):
 	print "Verified temperature is %.2f deg C" %mcptemp
-elif ((abs(htutemp - dstemp) < 0.3) and (abs(htutemp - dhttemp) < 0.3):
+elif ((abs(htutemp - dstemp) < 0.3) and (abs(htutemp - dhttemp) < 0.3)
 	print "Failsafe verified temperature is %.2f deg C" %htutemp
 else:
 	print "Temperature Reading Mismatch"
