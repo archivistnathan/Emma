@@ -54,7 +54,7 @@ equals_pos = lines[1].find('t=')
 # '=' into degrees Celsius and store in dstemp
 if equals_pos != -1:
 	temp_string = lines[1][equals_pos+2:]
-    dstemp = float(temp_string) / 1000.0
+    dstemp = float(temp_string) / 1000
     
 # Print to screen
 print "Temperature from DS18B20 is    : %.2f C" %dstemp
