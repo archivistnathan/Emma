@@ -96,7 +96,7 @@ print "Temperature from MCP9808 is    : %.2f C" %mcptemp
 # get DHT22 temperature and humidity using proprietary one-wire via Adafruit library
 
 DHT_SENSOR = Adafruit_DHT.DHT22
-DHT_PIN = 22
+DHT_PIN = 17
 
 dhthum, dhttemp = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
