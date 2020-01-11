@@ -101,7 +101,7 @@ DHT_PIN = 17
 dhthum, dhttemp = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
 if dhthum is not None and dhttemp is not None:
-    print "Temperature from DHT22 is    : %.1f C" %dhttemp
+	print "Temperature from DHT22 is    : %.1f C" %dhttemp
 	print "Humidity from DHT22 is    : %.1f RH" %dhthum
 else:
 	print("Failed to retrieve data from DHT22")
