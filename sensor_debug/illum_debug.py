@@ -14,6 +14,7 @@
 # import libraries for GPIO and I2C
 import smbus
 import time
+import os
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get visible illuminance from BH1750 using I2C 0x23
