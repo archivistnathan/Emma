@@ -147,7 +147,7 @@ if __name__ == '__main__':
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # validate readings by redundant comparison
 
-# checks temperature readings are within 0.3°C of each other
+# checks temperature readings are within 0.3 deg C of each other
 # focuses on value from MCP9008 as sensor with highest accuracy according to datasheet
 if ((abs(mcptemp - dstemp) < 0.3) or (abs(mcptemp - dhttemp) < 0.3) or (abs(mcptemp - htutemp) < 0.3)):
 	print "Verified temperature is %.2f deg C" %mcptemp
