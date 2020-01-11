@@ -12,7 +12,7 @@ def signed(value):
 #Read value from internal addr from chip. chip is the actual I2C slave address and addr the internal address of the device
 
 def read_address(chip,addr):
-        l='i2cget -y 0 '+str(chip)+' '+str(addr)+' b'
+        l='i2cget -y 1 '+str(chip)+' '+str(addr)+' b'
         p = os.popen(l)
         s = p.readline()
         p.close()
@@ -31,7 +31,7 @@ def read_word_data(chip,addr):
 #Write data into the addr of chip. chip is the actual I2C slave address and addr the internal address of the device
 
 def write_address(chip,addr,data):
-        l='i2cset -y 0 '+str(chip)+' '+str(addr)+' '+str(data)+' b'
+        l='i2cset -y 1 '+str(chip)+' '+str(addr)+' '+str(data)+' b'
         p = os.popen(l)
         p.close()
 
