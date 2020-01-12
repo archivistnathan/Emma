@@ -79,8 +79,8 @@ class MCP9808(object):
 		"""Read sensor and return its value in degrees celsius."""
 		# Read temperature register value.
 		t = self._device.readU16BE(MCP9808_REG_AMBIENT_TEMP)
+		bytet = bytes(16)
 		bytet = bytes(self._device.readU16BE(MCP9808_REG_AMBIENT_TEMP))
-		print bytet
 		print str(bin(bytet))[2:]
 		self._logger.debug('Raw ambient temp register value: 0x{0:04X}'.format(t & 0xFFFF))
 		# Scale and convert to signed value.
