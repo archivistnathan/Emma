@@ -162,6 +162,6 @@ humdiff = abs(htuhum - dhthum)
 if (abs(htuhum - dhthum) < 5):
 	print "Verified humidity is %.2f RH" %htuhum
 else:
-	print "Humidity Reading Mismatch: difference is %.2f", %humdiff
+	print "Humidity Reading Mismatch: difference is %.2f" %humdiff
 
 # return valid reading from most accurate sensor
