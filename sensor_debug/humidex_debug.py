@@ -120,8 +120,8 @@ CMD_READ_USER_REG = 0xE7
 CMD_RESET = 0xFE
     
 class HTU21D:
-	def __init__(self, busno):
-		self.bus = SMBus(busno)
+	def __init__(self, 1):
+		self.bus = SMBus(1)
 
 	def read_temperature(self):
 		self.reset()
