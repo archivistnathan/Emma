@@ -53,6 +53,6 @@ sensor.begin()
 print('Press Ctrl-C to quit.')
 while True:
 	temp = sensor.readTempC()
-	print('Raw Reading from Register:',temp[0])
+	print'Raw Reading from Register:',temp[0]
 	print('Temperature: {0:0.3F}*C / {1:0.3F}*F'.format(temp[1], c_to_f(temp[1])))
 	time.sleep(3.0)
