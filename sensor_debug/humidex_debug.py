@@ -158,9 +158,10 @@ else:
 
 # check humidity readings are within 3%RH of each other
 # selects value from HTU21D as sensor with highest consistent accuracy
+humdiff = abs(htuhum - dhthum)
 if (abs(htuhum - dhthum) < 5):
 	print "Verified humidity is %.2f RH" %htuhum
 else:
-	print "Humidity Reading Mismatch: difference is %.2f", %(abs(htuhum - dhthum) < 5)
+	print "Humidity Reading Mismatch: difference is %.2f", %humdiff
 
 # return valid reading from most accurate sensor
