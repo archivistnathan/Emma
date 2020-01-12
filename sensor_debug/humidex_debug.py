@@ -149,8 +149,8 @@ if __name__ == '__main__':
 
 # checks temperature readings are within 0.3 deg C of each other
 # focuses on value from MCP9008 as sensor with highest accuracy according to datasheet
-if ((abs(mcptemp - dstemp) < 0.3) or (abs(mcptemp - dhttemp) < 0.3) or (abs(mcptemp - htutemp) < 0.3)):
-	print "Verified temperature is %.2f deg C" %mcptemp
+if ((abs(htutemp - dstemp) < 0.3) or (abs(htutemp - dhttemp) < 0.3) or (abs(htutemp - mcptemp) < 0.3)):
+	print "Verified temperature is %.2f deg C" %htutemp
 #elif (((abs(htutemp - dstemp) < 0.3) and (abs(htutemp - dhttemp) < 0.3)):
 #	print "Failsafe verified temperature is %.2f deg C" %htutemp
 else:
@@ -158,7 +158,7 @@ else:
 
 # check humidity readings are within 3%RH of each other
 # selects value from HTU21D as sensor with highest consistent accuracy
-if (abs(htuhum - dhthum) < 3):
+if (abs(htuhum - dhthum) < 5):
 	print "Verified humidity is %.2f RH" %htuhum
 else:
 	print "Humidity Reading Mismatch"
