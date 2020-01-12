@@ -83,7 +83,7 @@ class MCP9808(object):
 		bytet = self._device.readU16BE(MCP9808_REG_AMBIENT_TEMP)
 		print bytet
 		byte1 = int('11110000', 2)
-		print byte1
+		print str(bin(byte1))[2:]
 		self._logger.debug('Raw ambient temp register value: 0x{0:04X}'.format(t & 0xFFFF))
 		# Scale and convert to signed value.
 		temp = (t & 0x0FFF) / 16.0
