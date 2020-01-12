@@ -157,7 +157,7 @@ if ((abs(htutemp - dstemp) < 0.3) or (abs(htutemp - dhttemp) < 0.3) or (abs(htut
 #elif (((abs(htutemp - dstemp) < 0.3) and (abs(htutemp - dhttemp) < 0.3)):
 #	print "Failsafe verified temperature is %.2f deg C" %htutemp
 else:
-	print "Temperature Reading Mismatch: htudsdiff %.2f"  %htudsdiff." htudhtdiff %.2f" %htudhtdiff."htumcpdiff %.2f" %htumcpdiff
+	print "Temperature Reading Mismatch: htudsdiff %.2f"  %htudsdiff+" htudhtdiff %.2f" %htudhtdiff+"htumcpdiff %.2f" %htumcpdiff
 
 # check humidity readings are within 3%RH of each other
 # selects value from HTU21D as sensor with highest consistent accuracy
