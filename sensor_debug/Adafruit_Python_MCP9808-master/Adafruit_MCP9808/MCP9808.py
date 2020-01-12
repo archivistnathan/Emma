@@ -84,4 +84,5 @@ class MCP9808(object):
 		temp = (t & 0x0FFF) / 16.0
 		if t & 0x1000:
 			temp = 256.0 - temp
-		return temp
+		temparr = [t, temp]
+		return temparr
