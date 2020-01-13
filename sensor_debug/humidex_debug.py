@@ -88,12 +88,12 @@ mcptemp = ((data[0] & 0x1F) * 256) + data[1]
 
 print "MCP9808 Raw Temperature Data: ", str(bin(mcptemp))[2:]
 
-trytemp = float(mcptemp)*0.00625
-print "Positive Temperature Attempt is    : %.2f C" %trytemp
-
 if mcptemp > 4095 :
 	mcptemp -= 8192
 mcptemp = mcptemp * 0.0625
+
+trytemp = (256-mcptemp)/10
+print "Positive Temperature Attempt is    : %.4f C" %trytemp
 
 # Output data to screen
 print "Temperature from MCP9808 is    : %.2f C" %mcptemp
