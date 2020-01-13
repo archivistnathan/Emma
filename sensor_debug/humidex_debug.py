@@ -76,15 +76,19 @@ bus.write_i2c_block_data(0x18, 0x01, config)
 #		0x03(03)	Resolution = +0.0625 / C
 bus.write_byte_data(0x18, 0x08, 0x03)
 
-time.sleep(1.0)
+time.sleep(0.5)
 
 # MCP9808 address, 0x18(24)
 # Read data back from 0x05(5), 2 bytes
 # Temp MSB, TEMP LSB
 data = bus.read_i2c_block_data(0x18, 0x05, 2)
+print "MCP9808 Raw Temperature Data: "+ str(bin(data))[2:]
 
 # Convert the data to 13-bits
 mcptemp = ((data[0] & 0x1F) * 256) + data[1]
+trytemp = float(mcptemp)/10
+print "Positive Temperature Attempt is    : %.2f C" %trytemp
+
 if mcptemp > 4095 :
 	mcptemp -= 8192
 mcptemp = mcptemp * 0.0625
