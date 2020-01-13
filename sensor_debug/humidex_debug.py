@@ -82,7 +82,8 @@ time.sleep(0.5)
 # Read data back from 0x05(5), 2 bytes
 # Temp MSB, TEMP LSB
 data = bus.read_i2c_block_data(0x18, 0x05, 2)
-print "MCP9808 Raw Temperature Data: "+ str(bin(data))[2:]
+print "MCP9808 Raw Temperature Data: "
+print str(bin(data))[2:]
 
 # Convert the data to 13-bits
 mcptemp = ((data[0] & 0x1F) * 256) + data[1]
