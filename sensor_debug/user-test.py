@@ -3,6 +3,8 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 MCW_PIN=14
+PIR_PIN = 18
+PIRM_PIN = 15
 
 GPIO.setup(MCW_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(PIR_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
