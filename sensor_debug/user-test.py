@@ -18,19 +18,19 @@ def MCWMOTION(MCW_PIN):
 	print "Motion Detected by Microwave Sensor"
 	global mcwusercount
 	mcwusercount = mcwusercount + 1
-	print "Current Usercount",mcwusercount
+	print "Current Microwave Usercount",mcwusercount
 
 def PIRMOTION(PIR_PIN):
 	print "Motion Detected by PIR Sensor"
 	global pirusercount
 	pirusercount = pirusercount + 1
-	print "Current Usercount",pirusercount
+	print "Current PIR Usercount",pirusercount
 
 def PIRMMOTION(PIRM_PIN):
 	print "Motion Detected by Modified PIR Sensor"
 	global pirmusercount
 	pirmusercount = pirmusercount + 1
-	print "Current Usercount",pirmusercount
+	print "Current Modified PIR Usercount",pirmusercount
 
 print "User Count Module Test"
 time.sleep(2)
@@ -44,7 +44,7 @@ try:
 		time.sleep(100)
 except KeyboardInterrupt:
 	print "Quit."
-	print " Final microwave user count: ",mcwusercount
+	print " Final Microwave user count: ",mcwusercount
 	print " Final PIR user count: ",pirusercount
-	print " Final modified PIR user count: ",pirmusercount
+	print " Final Modified PIR user count: ",pirmusercount
 	GPIO.cleanup()
