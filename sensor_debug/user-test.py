@@ -39,7 +39,7 @@ print "Ready"
 try:
 	GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
 	GPIO.add_event_detect(PIR_PIN,GPIO.RISING,callback=PIRMOTION)
-	GPIO.add_event_detect(PIRM_PIN,GPIO.RISING,callback=PIRMOTION)
+	GPIO.add_event_detect(PIRM_PIN,GPIO.RISING,callback=PIRMMOTION)
 	while 1:
 		time.sleep(100)
 except KeyboardInterrupt:
