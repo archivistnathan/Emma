@@ -181,12 +181,15 @@ def readU16LE(address, register):
 
 def read_uv():
         uvrel = float(readU16LE(0x60,0x2C))/100
-        vis = float(readU16LE(0x60,0x22))
+        als = float(readU16LE(0x60,0x22))
+        alsir = float(readU16LE(0x60,0x24))
+        float vis = ((abs*5.41)+(-0.08*alsir))
         uvabs = float(readU16LE(0x60,0x2C))*float(readU16LE(0x60,0x22))/100000
         print 'SI1145 UV Relative Index : ',uvrel
         print 'SI1145 UV Absolute       : ',uvabs
-        print 'SI1145 Vis + IR          : ',vis
-        print 'SI1145 IR                : ',float(readU16LE(0x60,0x24))
+        print 'SI1145 ALS Vis + IR      : ',als
+        print 'SI1145 Visible lux       : ',vis
+        print 'SI1145 IR                : ',alsir
         print 'SI1145 Proximity         : ',float(readU16LE(0x60,0x26))
         print 'SI1145 Irr W/m           : ',round(readU16LE(0x60,0x24)*0.0079,2)
 
