@@ -183,7 +183,7 @@ def read_uv():
         uvrel = float(readU16LE(0x60,0x2C))/100
         als = float(readU16LE(0x60,0x22))
         alsir = float(readU16LE(0x60,0x24))
-        vis = (als*5.41)-(alsir*0.08)
+        vis = (float(als)*5.41)-(float(alsir)*0.08)
         uvabs = float(readU16LE(0x60,0x2C))*float(readU16LE(0x60,0x22))/100000
         print 'SI1145 UV Relative Index : ',uvrel
         print 'SI1145 UV Absolute       : ',uvabs
