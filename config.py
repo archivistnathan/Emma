@@ -25,6 +25,10 @@ sound_set = TRUE
 gas_set = TRUE
 user_set = TRUE
 
+# Divides user count by 2 when true for bidirectional passages
+
+user_bi = TRUE
+
 # Enable audible and led alerts
 
 alerts_set = TRUE
