@@ -22,5 +22,5 @@ cTemp = -45 + (175 * temp / 65535.0)
 humidity = 100 * (data[3] * 256 + data[4]) / 65535.0
  
 # Output data to screen
-print "Temperature in Celsius is : %.2f C" %cTemp
+print "Temperature in Celsius is : %.3f C" %cTemp
 print "Relative Humidity is : %.2f %%RH" %humidity
