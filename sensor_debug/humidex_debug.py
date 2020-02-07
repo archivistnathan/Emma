@@ -92,9 +92,6 @@ if mcptemp > 4095 :
 	mcptemp -= 8192
 mcptemp = mcptemp * 0.0625
 
-trytemp = (256-mcptemp)/10
-print "Positive Temperature Attempt is    : %.4f C" %trytemp
-
 # Output data to screen
 print "Temperature from MCP9808 is    : %.2f C" %mcptemp
 
@@ -169,8 +166,8 @@ cTemp = -45 + (175 * temp / 65535.0)
 humidity = 100 * (data[3] * 256 + data[4]) / 65535.0
  
 # Output data to screen
-print "Temperature in Celsius is : %.3f C" %cTemp
-print "Relative Humidity is : %.2f %%RH" %humidity
+print "Temperature from SHT31 is : %.3f C" %cTemp
+print "Humidity from SHT31 is : %.2f %%RH" %humidity
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # validate readings by redundant comparison
