@@ -172,6 +172,8 @@ print "Humidity from SHT31 is : %.2f %%RH" %shthum
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # validate readings by redundant comparison
 
+print "-------------------------------"
+
 # checks temperature readings are within 0.3 deg C of each other
 # focuses on value from MCP9008 as sensor with highest accuracy according to datasheet
 shtdsdiff = abs(shttemp - dstemp)
@@ -180,6 +182,7 @@ shtmcpdiff = abs(shttemp - mcptemp)
 shthtudiff = abs(shttemp - htutemp)
 if ((abs(shttemp - dstemp) < 0.3) or (abs(shttemp - dhttemp) < 0.3) or (abs(shttemp - mcptemp) < 0.3) or (abs(shttemp - htutemp) < 0.3)):
 	print "Verified temperature is %.2f deg C" %shttemp
+	print "Temperature Difference: shtdsdiff %.2f"  %shtdsdiff+" shtdhtdiff %.2f" %shtdhtdiff+" shtmcpdiff %.2f" %shtmcpdiff+" shthtudiff %.2f" %shthtudiff
 #elif (((abs(htutemp - dstemp) < 0.3) and (abs(htutemp - dhttemp) < 0.3)):
 #	print "Failsafe verified temperature is %.2f deg C" %htutemp
 else:
@@ -191,6 +194,8 @@ shtdhthumdiff = abs(shthum - dhthum)
 shthtuhumdiff = abs(shthum - htuhum)
 if ((abs(shthum - dhthum) < 5) or (abs(shthum - htuhum) < 5)):
 	print "Verified humidity is %.2f RH" %shthum
+	print "Humidity Difference: SHT HTU diff %.2f" %shthtuhumdiff + " SHT DHT diff %.2f" %shtdhthumdiff
+
 else:
 	print "Humidity Reading Mismatch: SHT HTU diff %.2f" %shthtuhumdiff + " SHT DHT diff %.2f" %shtdhthumdiff
 
