@@ -161,35 +161,37 @@ time.sleep(0.5)
 data = bus.read_i2c_block_data(0x44, 0x00, 6)
  
 # Convert the data
-temp = data[0] * 256 + data[1]
-cTemp = -45 + (175 * temp / 65535.0)
-humidity = 100 * (data[3] * 256 + data[4]) / 65535.0
+sht = data[0] * 256 + data[1]
+shttemp = -45 + (175 * sht / 65535.0)
+shthum = 100 * (data[3] * 256 + data[4]) / 65535.0
  
 # Output data to screen
-print "Temperature from SHT31 is : %.3f C" %cTemp
-print "Humidity from SHT31 is : %.2f %%RH" %humidity
+print "Temperature from SHT31 is : %.3f C" %shttemp
+print "Humidity from SHT31 is : %.2f %%RH" %shthum
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # validate readings by redundant comparison
 
 # checks temperature readings are within 0.3 deg C of each other
 # focuses on value from MCP9008 as sensor with highest accuracy according to datasheet
-htudsdiff = abs(htutemp - dstemp)
-htudhtdiff = abs(htutemp - dhttemp)
-htumcpdiff = abs(htutemp - mcptemp)
-if ((abs(htutemp - dstemp) < 0.3) or (abs(htutemp - dhttemp) < 0.3) or (abs(htutemp - mcptemp) < 0.3)):
-	print "Verified temperature is %.2f deg C" %htutemp
+shtdsdiff = abs(shttemp - dstemp)
+shtdhtdiff = abs(shttemp - dhttemp)
+shtmcpdiff = abs(shttemp - mcptemp)
+shthtudiff = abs(shttemp - htutemp)
+if ((abs(shttemp - dstemp) < 0.3) or (abs(shttemp - dhttemp) < 0.3) or (abs(shttemp - mcptemp) < 0.3) or (abs(shttemp - htutemp) < 0.3):
+	print "Verified temperature is %.2f deg C" %shttemp
 #elif (((abs(htutemp - dstemp) < 0.3) and (abs(htutemp - dhttemp) < 0.3)):
 #	print "Failsafe verified temperature is %.2f deg C" %htutemp
 else:
-	print "Temperature Reading Mismatch: htudsdiff %.2f"  %htudsdiff+" htudhtdiff %.2f" %htudhtdiff+" htumcpdiff %.2f" %htumcpdiff
+	print "Temperature Reading Mismatch: shtdsdiff %.2f"  %shtdsdiff+" shtdhtdiff %.2f" %shtdhtdiff+" shtmcpdiff %.2f" %shtmcpdiff+" shthtudiff %.2f" %shthtudiff
 
 # check humidity readings are within 3%RH of each other
 # selects value from HTU21D as sensor with highest consistent accuracy
-humdiff = abs(htuhum - dhthum)
-if (abs(htuhum - dhthum) < 5):
-	print "Verified humidity is %.2f RH" %htuhum
+shtdhthumdiff = abs(shthum - dhthum)
+shthtuhumdiff = abs(shthum - htuhum)
+if ((abs(shthum - dhthum) < 5) or (abs(shthum - htuhum) < 5)):
+	print "Verified humidity is %.2f RH" %shthum
 else:
-	print "Humidity Reading Mismatch: difference is %.2f" %humdiff
+	print "Humidity Reading Mismatch: SHT HTU diff %.2f" %shthtuhumdiff + " SHT DHT diff %.2f" %shtdhthumdiff
 
 # return valid reading from most accurate sensor
