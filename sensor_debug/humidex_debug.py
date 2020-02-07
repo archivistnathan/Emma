@@ -178,7 +178,7 @@ shtdsdiff = abs(shttemp - dstemp)
 shtdhtdiff = abs(shttemp - dhttemp)
 shtmcpdiff = abs(shttemp - mcptemp)
 shthtudiff = abs(shttemp - htutemp)
-if ((abs(shttemp - dstemp) < 0.3) or (abs(shttemp - dhttemp) < 0.3) or (abs(shttemp - mcptemp) < 0.3) or (abs(shttemp - htutemp) < 0.3):
+if ((abs(shttemp - dstemp) < 0.3) or (abs(shttemp - dhttemp) < 0.3) or (abs(shttemp - mcptemp) < 0.3) or (abs(shttemp - htutemp) < 0.3)):
 	print "Verified temperature is %.2f deg C" %shttemp
 #elif (((abs(htutemp - dstemp) < 0.3) and (abs(htutemp - dhttemp) < 0.3)):
 #	print "Failsafe verified temperature is %.2f deg C" %htutemp
