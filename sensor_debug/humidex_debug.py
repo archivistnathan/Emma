@@ -172,7 +172,7 @@ print "Humidity from SHT31 is : %.2f %%RH" %shthum
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # validate readings by redundant comparison
 
-print "-------------------------------"
+print "---------------------------------------"
 
 # checks temperature readings are within 0.3 deg C of each other
 # focuses on value from MCP9008 as sensor with highest accuracy according to datasheet
