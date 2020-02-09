@@ -17,7 +17,9 @@
 # import libraries for GPIO and I2C
 import subprocess
 
-process = subprocess.Popen(["sox", "test1.wav", "-n", "stats"], 
+monitor = subprocess.run("arecord", "-D", "plughw:1,0", ""-qd", "1", "monitor.wav")
+
+process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
 
