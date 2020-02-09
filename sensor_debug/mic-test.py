@@ -19,12 +19,16 @@
 # import libraries for GPIO and I2C
 import subprocess
 
+# Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
-process = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], 
+# Use sox stats to analyse clip
+process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
+                           stdout=subprocess.PIPE,
                            universal_newlines=True)
-print(type(process))
-print(len(process))
+valueblock = process.communicate()[0]
+print(type(valueblock))
+print(len(valueblock))
 
 while True:
     output = process.stdout.readline()
