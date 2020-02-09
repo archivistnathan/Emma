@@ -25,6 +25,7 @@ process = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"],
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
 print(type(process))
+print(len(process))
 
 while True:
     output = process.stdout.readline()
