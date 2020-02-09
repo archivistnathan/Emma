@@ -17,8 +17,7 @@
 # import libraries for GPIO and I2C
 import subprocess
 
-monitor = subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
-print('Monitor State:',monitor.returncode)
+subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
 process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
