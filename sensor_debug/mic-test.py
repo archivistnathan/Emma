@@ -27,7 +27,7 @@ process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"],
 
 while True:
     output = process.stdout.readline()
-    print(len(stdout))
+    print(output)
     print(output.strip())
     # Do something else
     return_code = process.poll()
