@@ -24,10 +24,10 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
+print 'Output length', len(process)
 
 while True:
     output = process.stdout.readline()
-    print(len(output.strip()))
     print(output.strip())
     # Do something else
     return_code = process.poll()
@@ -37,3 +37,5 @@ while True:
         for output in process.stdout.readlines():
             print(output.strip())
         break
+        
+result = subprocess.check_output
