@@ -24,7 +24,8 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
-print(type(output))
+print(type(process))
+print(len(process))
 
 while True:
     output = process.stdout.readline()
