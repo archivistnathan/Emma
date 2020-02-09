@@ -15,7 +15,7 @@
 # ------------------------------------------------------------------------------
 
 # import libraries for GPIO and I2C
-import os
+import subprocess
 
 process = subprocess.Popen(['arecord', '-D plughw:1,0 -qd 1 test1.wav && sox test1.wav -n stats
 '], 
