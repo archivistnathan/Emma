@@ -42,4 +42,3 @@ while True:
             print(output.strip())
         break
         
-result = subprocess.check_output
