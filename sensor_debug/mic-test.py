@@ -17,7 +17,7 @@
 # import libraries for GPIO and I2C
 import subprocess
 
-process = subprocess.Popen(['sox', 'test1.wav -n stats'], 
+process = subprocess.Popen(['sox test1.wav -n stats'], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
 
