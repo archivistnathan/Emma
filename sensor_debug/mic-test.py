@@ -22,7 +22,6 @@ import subprocess
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
 process = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], 
-                           stdout=subprocess.PIPE,
                            universal_newlines=True)
 print(type(process))
 print(len(process))
