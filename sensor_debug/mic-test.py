@@ -14,6 +14,8 @@
 # email nathan@slis.upd.edu.ph
 # ------------------------------------------------------------------------------
 
+# This code requires sox installed
+
 # import libraries for GPIO and I2C
 import subprocess
 
@@ -25,6 +27,7 @@ process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"],
 
 while True:
     output = process.stdout.readline()
+    print(len(output))
     print(output.strip())
     # Do something else
     return_code = process.poll()
