@@ -27,16 +27,9 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
-stdout, stderr = process.communicate()
-
-soundblock = csv.DictReader(stdout.decode('ascii').splitlines(),
-                        delimiter=' ', skipinitialspace=True,
-                        fieldnames=['dcoffset', 'minlevel', 'maxlevel', 'pkleveldb', 'rmsleveldb', 'rmspkdb', 'rmstrdb', 'crestfactor', 'flatfactor', 'pkcount', 'bitdepth', 'numsamples', 'len', 'scale', 'window'])
+soundblock = process.communicate()[0]
 
 print(soundblock[maxlevel])
-
-for row in soundblock:
-	print(row)
 
 #while True:
 #	output = process.stdout.readline()
