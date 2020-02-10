@@ -23,12 +23,15 @@ import re
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
+# FOR DEBUGGING, cecking is syntax of check_output is valid
 checkp = subprocess.check_output(["date"])
 print 'Date is: ', checkp
 
 # Use sox to get clip stats
-statsblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"])
-print 'Clip stats is:', statsblock
+statsblock = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"])
+stdout, stderr = process.communicate
+print(len(stdout))
+print(len(stderr))
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
