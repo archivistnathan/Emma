@@ -18,15 +18,27 @@
 
 # import libraries for GPIO and I2C
 import subprocess
-import csv
+import re
 
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
 # Use sox to get clip stats
-soundblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], universal_newlines=False)
-print(soundblock)
-print(len(soundblock))
+proc = subprocess.run(["sox", "monitor.wav", "-n", "stats"], stdout=subprocess.PIPE)
+soundblock = proc.stdout
+
+# Remove duplicate whitespaces
+soundblock = re.sub(' +', " ", soundblock)
+
+statlist = soundblock.split('\n')
+
+clipstats = []
+for line in range(len(statlist)):
+	cstat = statlist[line].split(" ", 2)
+	print(cstat)
+	clipstats.append(cstat)
+
+print (*clipstats, sep="\n")
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
