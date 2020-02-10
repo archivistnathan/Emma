@@ -38,7 +38,7 @@ for line in range(len(statlist)):
 	print(cstat)
 	clipstats.append(cstat)
 
-print (len(clipstats)
+print (len(clipstats))
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
@@ -58,4 +58,3 @@ print (len(clipstats)
 #        for output in process.stdout.readlines():
 #            print(output.strip())
 #        break
-        
