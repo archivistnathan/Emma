@@ -57,7 +57,7 @@ if equals_pos != -1:
 	dstemp = float(temp_string)/1000
     
 # Print to screen
-print "Temperature from DS18B20 is    : %.2f C" %dstemp
+print ("Temperature from DS18B20 is    : %.2f C" %dstemp)
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get MCP9808 temperature using I2C 0x18
