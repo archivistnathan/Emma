@@ -29,7 +29,7 @@ process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"],
                            universal_newlines=True)
 soundblock = process.communicate()[0]
 
-print(soundblock[maxlevel])
+print(soundblock)
 
 #while True:
 #	output = process.stdout.readline()
