@@ -29,7 +29,8 @@ print 'Date is: ', checkp
 
 # Use sox to get clip stats
 statsblock = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
-print("Clip is: ",stderr))
+print("Clip is: ",statsblock))
+print(len(statsblock))
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
