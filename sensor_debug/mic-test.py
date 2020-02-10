@@ -33,7 +33,7 @@ soundblock = csv.DictReader(stdout.decode('ascii').splitlines(),
                         delimiter=' ', skipinitialspace=True,
                         fieldnames=['dcoffset', 'minlevel', 'maxlevel', 'pkleveldb', 'rmsleveldb', 'rmspkdb', 'rmstrdb', 'crestfactor', 'flatfactor', 'pkcount', 'bitdepth', 'numsamples', 'len', 'scale', 'window'])
 
-for row in sounblock:
+for row in soundblock:
 	print(row)
 
 #while True:
