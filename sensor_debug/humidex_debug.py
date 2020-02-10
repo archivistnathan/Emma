@@ -86,7 +86,7 @@ data = bus.read_i2c_block_data(0x18, 0x05, 2)
 # Convert the data to 13-bits
 mcptemp = ((data[0] & 0x1F) * 256) + data[1]
 
-print "MCP9808 Raw Temperature Data: ", str(bin(mcptemp))[2:]
+print ("MCP9808 Raw Temperature Data: ", str(bin(mcptemp))[2:])
 
 if mcptemp > 4095 :
 	mcptemp -= 8192
