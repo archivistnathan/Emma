@@ -28,10 +28,8 @@ checkp = subprocess.check_output(["date"])
 print 'Date is: ', checkp
 
 # Use sox to get clip stats
-statsblock = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"])
-stdout, stderr = process.communicate
-print(len(stdout))
-print(len(stderr))
+statsblock = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
+print("Clip is: ",stderr))
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
