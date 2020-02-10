@@ -24,21 +24,8 @@ import re
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
 # Use sox to get clip stats
-proc = subprocess.run(["sox", "monitor.wav", "-n", "stats"], stdout=subprocess.PIPE)
-soundblock = proc.stdout
-
-# Remove duplicate whitespaces
-soundblock = re.sub(' +', " ", soundblock)
-
-statlist = soundblock.split('\n')
-
-clipstats = []
-for line in range(len(statlist)):
-	cstat = statlist[line].split(" ", 2)
-	print(cstat)
-	clipstats.append(cstat)
-
-print (len(clipstats))
+statsblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"])
+print('Clip stats is:', statblock.decode("utf-8"))
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
