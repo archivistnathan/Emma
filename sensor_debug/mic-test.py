@@ -23,13 +23,13 @@ import csv
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
-# Use sox stats to analyse clip
+# Use sox to get clip stats
 process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
 soundblock = process.communicate()[0]
 
-print(soundblock)
+# print(soundblock)
 
 #while True:
 #	output = process.stdout.readline()
