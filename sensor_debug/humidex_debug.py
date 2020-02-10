@@ -57,7 +57,7 @@ if equals_pos != -1:
 	dstemp = float(temp_string)/1000
     
 # Print to screen
-print ("Temperature from DS18B20 is    : %.2f C" %dstemp)
+print "Temperature from DS18B20 is    : %.2f C" %dstemp
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get MCP9808 temperature using I2C 0x18
@@ -86,7 +86,7 @@ data = bus.read_i2c_block_data(0x18, 0x05, 2)
 # Convert the data to 13-bits
 mcptemp = ((data[0] & 0x1F) * 256) + data[1]
 
-print ("MCP9808 Raw Temperature Data: ", str(bin(mcptemp))[2:])
+print "MCP9808 Raw Temperature Data: ", str(bin(mcptemp))[2:]
 
 if mcptemp > 4095 :
 	mcptemp -= 8192
