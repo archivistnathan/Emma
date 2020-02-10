@@ -23,6 +23,9 @@ import re
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
+checkp = subprocess.check_output(["date"])
+print 'Date is: ', checkp
+
 # Use sox to get clip stats
 statsblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"])
 print 'Clip stats is:', statsblock
