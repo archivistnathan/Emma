@@ -24,7 +24,7 @@ import csv
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
 # Use sox to get clip stats
-soundblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"])
+soundblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], universal_newlines=False)
 print(soundblock)
 print(len(soundblock))
 
