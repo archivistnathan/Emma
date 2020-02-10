@@ -26,19 +26,24 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
-valueblock = process.communicate()[0]
-print(type(valueblock))
-print(len(valueblock))
+stdout, stderr = process.communicate()[0]
 
-while True:
-    output = process.stdout.readline()
-    print(output.strip())
+soundblock = csv.DictReader(stdout.decode('ascii').splitlines(),
+                        delimiter=' ', skipinitialspace=True,
+                        fieldnames=['dcoffset', 'minlevel', 'maxlevel', 'pkleveldb', 'rmsleveldb', 'rmspkdb', 'rmstrdb', 'crestfactor', 'flatfactor', 'pkcount', 'bitdepth', 'numsamples', 'len', 'scale', 'window'])
+
+for row in sounblock:
+	print(row)
+
+#while True:
+#	output = process.stdout.readline()
+#    print(output.strip())
     # Do something else
-    return_code = process.poll()
-    if return_code is not None:
-        print('RETURN CODE', return_code)
-        # Process has finished, read rest of the output 
-        for output in process.stdout.readlines():
-            print(output.strip())
-        break
+#    return_code = process.poll()
+#    if return_code is not None:
+#        print('RETURN CODE', return_code)
+#        # Process has finished, read rest of the output 
+#        for output in process.stdout.readlines():
+#            print(output.strip())
+#        break
         
