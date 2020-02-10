@@ -26,7 +26,7 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
                            stdout=subprocess.PIPE,
                            universal_newlines=True)
-stdout, stderr = process.communicate()[0]
+stdout, stderr = process.communicate()
 
 soundblock = csv.DictReader(stdout.decode('ascii').splitlines(),
                         delimiter=' ', skipinitialspace=True,
