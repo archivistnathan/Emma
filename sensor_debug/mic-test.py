@@ -15,6 +15,7 @@
 # ------------------------------------------------------------------------------
 
 # This code requires sox installed
+# http://sox.sourceforge.net/sox.html
 
 # import libraries for GPIO and I2C
 import subprocess
@@ -34,7 +35,6 @@ soxout = re.sub("\s\s+", " ", soxout)
 
 # Convert string to list
 outlist = soxout.split('\n')
-print("Converted list is: ",outlist)
 
 #Split list item to attribute and value strings
 clipstat = []
@@ -43,7 +43,8 @@ for line in range(len(outlist)):
 	liststat = outlist[line].rsplit(" ",1)
 	clipstat.append(liststat)
 
-#Test if I can print specific stats
+# Isolate specific values and convert to float
+# From sox docsL Pk lev dB and RMS lev dB are standard peak and RMS level measured in dBFS. RMS Pk dB and RMS Tr dB are peak and trough values for RMS level measured over a short window (default 50ms).
 
 print "Pk level dB: ", float(clipstat[3][1])
 print "RMS level dB: ", float(clipstat[4][1])
@@ -51,22 +52,3 @@ print "RMS peak dB: ", float(clipstat[5][1])
 print "RMS Trough dB: ", float(clipstat[6][1])
 
 print(datetime.now())
-
-#process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
-#                           stdout=subprocess.PIPE,
-#                           universal_newlines=True)
-#soundblock = process.communicate()[0]
-
-# 	print(soundblock)
-
-#while True:
-#	output = process.stdout.readline()
-#    print(output.strip())
-    # Do something else
-#    return_code = process.poll()
-#    if return_code is not None:
-#        print('RETURN CODE', return_code)
-#        # Process has finished, read rest of the output 
-#        for output in process.stdout.readlines():
-#            print(output.strip())
-#        break
