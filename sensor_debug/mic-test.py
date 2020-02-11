@@ -23,9 +23,7 @@ from datetime import datetime
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
-# FOR DEBUGGING, cecking is syntax of check_output is valid
-checkp = subprocess.check_output(["date"])
-print 'Date is: ', checkp
+print(datetime.now())
 
 # Use sox to get clip stats which are outputted to stderr
 soxout = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
