@@ -39,7 +39,6 @@ outlist = soxout.split('\n')
 #Split list item to attribute and value strings
 clipstat = []
 for line in range(len(outlist)):
-	print(outlist[line])
 	liststat = outlist[line].rsplit(" ",1)
 	clipstat.append(liststat)
 
