@@ -50,6 +50,11 @@ print("\n")
 
 print(clipstat)
 
+print("\n")
+#Test if I can print specific stats
+
+print(clipstat[4])
+
 print(datetime.now())
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
