@@ -28,8 +28,6 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 
 # Use sox to get clip stats which are outputted to stderr
 soxout = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
-print("Output is: ",soxout)
-print("\n")
 
 # Remove extra whitespaces
 soxout = re.sub("\s\s+", " ", soxout)
@@ -37,7 +35,6 @@ soxout = re.sub("\s\s+", " ", soxout)
 # Convert string to list
 outlist = soxout.split('\n')
 print("Converted list is: ",outlist)
-print("\n")
 
 #Split list item to attribute and value strings
 clipstat = []
@@ -46,18 +43,12 @@ for line in range(len(outlist)):
 	liststat = outlist[line].rsplit(" ",1)
 	clipstat.append(liststat)
 
-print("\n")
-
-print(clipstat)
-
-print("\n")
 #Test if I can print specific stats
 
 print "Pk level dB: ", float(clipstat[3][1])
-print(clipstat[4])
-print(clipstat[5])
-print(clipstat[6])
-
+print "RMS level dB: ", float(clipstat[4][1])
+print "RMS peak dB: ", float(clipstat[5][1])
+print "RMS Trough dB: ", float(clipstat[6][1])
 
 print(datetime.now())
 
