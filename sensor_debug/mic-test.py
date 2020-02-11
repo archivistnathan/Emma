@@ -28,7 +28,8 @@ checkp = subprocess.check_output(["date"])
 print 'Date is: ', checkp
 
 # Use sox to get clip stats which are outputted to stderr
-statsblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
+soxout = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"])
+statsblock = soxout.stderr
 print("Clip is: ",statsblock)
 print(type(statsblock))
 
