@@ -53,7 +53,11 @@ print(clipstat)
 print("\n")
 #Test if I can print specific stats
 
-print(clipstat[3], "/n")
+print(clipstat[3])
+print(clipstat[4])
+print(clipstat[5])
+print(clipstat[6])
+
 
 print(datetime.now())
 
