@@ -42,6 +42,8 @@ for line in range(len(outlist)):
 
 print("\n")
 
+print(clipstat)
+
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
 #                           universal_newlines=True)
