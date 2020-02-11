@@ -18,7 +18,7 @@
 
 # import libraries for GPIO and I2C
 import subprocess
-import date
+import datetime
 
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
