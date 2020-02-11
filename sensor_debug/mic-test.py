@@ -48,6 +48,8 @@ print("\n")
 
 print(clipstat)
 
+print(date())
+
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
 #                           universal_newlines=True)
