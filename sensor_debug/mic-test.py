@@ -53,7 +53,7 @@ print(clipstat)
 print("\n")
 #Test if I can print specific stats
 
-print(clipstat[3])
+print "Pk level dB: ", float(clipstat[3][1])
 print(clipstat[4])
 print(clipstat[5])
 print(clipstat[6])
