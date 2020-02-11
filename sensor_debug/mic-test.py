@@ -20,10 +20,10 @@
 import subprocess
 from datetime import datetime
 
+print(datetime.now())
+
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
-
-print(datetime.now())
 
 # Use sox to get clip stats which are outputted to stderr
 soxout = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
