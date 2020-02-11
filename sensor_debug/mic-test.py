@@ -40,7 +40,7 @@ print("\n")
 #Split list item to attribute and value strings
 clipstat = []
 for line in range(len(outlist)):
-	print(outlist[line[]])
+	print(outlist[line])
 	liststat = outlist[line].rsplit(" ",1)
 	clipstat.append(clipstat)
 
