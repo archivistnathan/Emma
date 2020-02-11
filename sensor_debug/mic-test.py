@@ -27,10 +27,10 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 checkp = subprocess.check_output(["date"])
 print 'Date is: ', checkp
 
-# Use sox to get clip stats
+# Use sox to get clip stats which are outputted to stderr
 statsblock = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
 print("Clip is: ",statsblock)
-print(len(statsblock))
+print(type(statsblock))
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
