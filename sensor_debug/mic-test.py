@@ -30,15 +30,17 @@ print 'Date is: ', checkp
 # Use sox to get clip stats which are outputted to stderr
 soxout = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
 print("Output is: ",soxout)
+print("\n")
 
 # Convert string to list
 outlist = soxout.split('\n')
 print("Converted list is: ",outlist)
+print("\n")
 
 #Split list item to attribute and value strings
 clipstat = []
 for line in range(len(outlist)):
-	print(outlist[line])
+	print(outlist[line[]])
 	liststat = outlist[line].rsplit(" ",1)
 	clipstat.append(clipstat)
 
