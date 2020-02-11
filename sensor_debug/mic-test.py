@@ -32,9 +32,15 @@ soxout = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=s
 print("Clip is: ",soxout)
 
 # Convert string to list
-statslist = soxout.split('\n')
+outlist = soxout.split('\n')
+print(outlist)
 
-print(statslist)
+clipstat = []
+for line in range(len(outlist)):
+	liststat = outlist[line].rsplit(" ",1)
+	clipstat.append(clipstat)
+
+print("\n")
 
 #process = subprocess.Popen(["sox", "monitor.wav", "-n", "stats"], 
 #                           stdout=subprocess.PIPE,
