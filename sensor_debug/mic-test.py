@@ -18,6 +18,7 @@
 
 # import libraries for GPIO and I2C
 import subprocess
+import re
 from datetime import datetime
 
 print(datetime.now())
@@ -29,6 +30,9 @@ subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
 soxout = subprocess.check_output(["sox", "monitor.wav", "-n", "stats"], stderr=subprocess.STDOUT)
 print("Output is: ",soxout)
 print("\n")
+
+# Remove extra whitespaces
+soxout = re.sub("\s\s+", " ", soxout)
 
 # Convert string to list
 outlist = soxout.split('\n')
