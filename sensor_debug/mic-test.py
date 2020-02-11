@@ -42,7 +42,7 @@ clipstat = []
 for line in range(len(outlist)):
 	print(outlist[line])
 	liststat = outlist[line].rsplit(" ",1)
-	clipstat.append(clipstat)
+	clipstat.append(liststat)
 
 print("\n")
 
