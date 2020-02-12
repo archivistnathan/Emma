@@ -4,9 +4,12 @@ from datetime import timedelta
 
 tl = Timeloop()
 
+execfile('humidex.py')
+print("Initial humidex capture ",time,time())
+
 @tl.job(interval=timedelta(seconds=30))
 def humidex_capture():
-	execfile(humidex.py)
+	execfile('humidex.py')
 	print("Humidex captured ",time,time())
 
 if __name__ == "__main__":
