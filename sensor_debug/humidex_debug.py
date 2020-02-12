@@ -209,5 +209,5 @@ humidex = (dstemp,dhttemp,mcptemp,htutemp,shttemp,dhthum,htuhum,shthum,timenow)
 print(humidex)
 
 f = open("humidex.txt","a+")
-f.write(humidex)
+f.write(str(humidex))
 f.close()
