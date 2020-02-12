@@ -189,7 +189,7 @@ else:
 	print "Temperature Reading Mismatch: shtdsdiff %.2f"  %shtdsdiff+" shtdhtdiff %.2f" %shtdhtdiff+" shtmcpdiff %.2f" %shtmcpdiff+" shthtudiff %.2f" %shthtudiff
 
 # check humidity readings are within 3%RH of each other
-# selects value from HTU21D as sensor with highest consistent accuracy
+# selects value from SHT31 as sensor with highest consistent accuracy
 shtdhthumdiff = abs(shthum - dhthum)
 shthtuhumdiff = abs(shthum - htuhum)
 if ((abs(shthum - dhthum) < 5) or (abs(shthum - htuhum) < 5)):
@@ -199,4 +199,7 @@ if ((abs(shthum - dhthum) < 5) or (abs(shthum - htuhum) < 5)):
 else:
 	print "Humidity Reading Mismatch: SHT HTU diff %.2f" %shthtuhumdiff + " SHT DHT diff %.2f" %shtdhthumdiff
 
-# return valid reading from most accurate sensor
+# return valid reading from most accurate sensor and saves to file
+
+humidex = (dstemp,dhttemp,mcptemp,htutemp,shttemp,dhthum,htuhum,shthum)
+print(humidex)
