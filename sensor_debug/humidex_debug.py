@@ -20,6 +20,7 @@ import Adafruit_DHT
 
 # Get current time
 timenow = time.time()
+timenow = time.localtime(timenow)
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get DS18B20 temperature using one-wire
