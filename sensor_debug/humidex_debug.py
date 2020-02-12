@@ -206,9 +206,10 @@ else:
 # return valid reading from most accurate sensor and saves to file
 
 humidex = (dstemp,dhttemp,mcptemp,htutemp,shttemp,dhthum,htuhum,shthum,timenow)
-print(humidex)
 
 f = open("humidex.txt","a+")
 f.write(str(humidex))
 f.write("\n")
 f.close()
+
+print("Stored to file humidex.txt")
