@@ -210,4 +210,5 @@ print(humidex)
 
 f = open("humidex.txt","a+")
 f.write(str(humidex))
+f.write("\n")
 f.close()
