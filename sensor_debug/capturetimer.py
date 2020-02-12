@@ -2,6 +2,9 @@ import time
 from timeloop import Timeloop
 from datetime import timedelta
 
+# This code uses the Timedelta library to schedule when readings are captured
+# https://medium.com/greedygame-engineering/an-elegant-way-to-run-periodic-tasks-in-python-61b7c477b679
+
 tl = Timeloop()
 
 execfile('humidex_debug.py')
