@@ -4,7 +4,7 @@ from datetime import timedelta
 
 tl = Timeloop()
 
-execfile('humidex.py')
+execfile('humidex_debug.py')
 print("Initial humidex capture ",time,time())
 
 @tl.job(interval=timedelta(seconds=30))
