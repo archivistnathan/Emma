@@ -18,6 +18,9 @@ import smbus
 import time
 import Adafruit_DHT
 
+# Get current time
+timenow = time.time()
+
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get DS18B20 temperature using one-wire
 # REMEMBER TO ENABLE ONE-WIRE IN RPi-config
@@ -201,5 +204,5 @@ else:
 
 # return valid reading from most accurate sensor and saves to file
 
-humidex = (dstemp,dhttemp,mcptemp,htutemp,shttemp,dhthum,htuhum,shthum)
+humidex = (dstemp,dhttemp,mcptemp,htutemp,shttemp,dhthum,htuhum,shthum,timenow)
 print(humidex)
