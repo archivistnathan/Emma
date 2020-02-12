@@ -44,6 +44,7 @@ for line in range(len(outlist)):
 
 # Isolate specific values and convert to float
 # From sox docsL Pk lev dB and RMS lev dB are standard peak and RMS level measured in dBFS. RMS Pk dB and RMS Tr dB are peak and trough values for RMS level measured over a short window (default 50ms).
+# This measures dBFS, i.e. intensity relative to the full scale clipping point. This is not dB-SPL and thus not directly reflective of sound pressure.
 
 print "Pk level dB: ", float(clipstat[3][1])
 print "RMS level dB: ", float(clipstat[4][1])
