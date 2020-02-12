@@ -2,7 +2,7 @@ import time
 from timeloop import Timeloop
 from datetime import timedelta
 
-t1 = Timeloop()
+tl = Timeloop()
 
 @tl.job(interval=timedelta(seconds=30))
 def humidex_capture():
