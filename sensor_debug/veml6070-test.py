@@ -46,9 +46,11 @@ class VEML6070():
 		uvlight = data0 * 256 + data1
  
 		return {'u' : uvlight}
-  
+ 
+veml6070 = VEML6070()
+ 
 while True:
-	light = VEML6070.read_uvlight()
+	light = veml6070.read_uvlight()
 	print "UV Light Level : %d" %(light['u'])
 	print " *********************************** "
 	time.sleep(0.5)
