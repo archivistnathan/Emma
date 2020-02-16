@@ -43,7 +43,7 @@ class VEML6070():
 		data1 = bus.read_byte(VEML6070_CMD_READ_LSB)
  
 		# Convert the data
-		uvlight = data0 * 256 + data1
+		uvlight = float(data0 * 256 + data1)
  
 		return {'u' : uvlight}
  
