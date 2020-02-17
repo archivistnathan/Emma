@@ -7,31 +7,31 @@ import time
 bus = smbus.SMBus(1)
 
 # default address
-CCS811_ADDR = const(0x5A)
+CCS811_ADDR = 0x5A
 
 # Commands
-CCS811_STATUS = const(0x00)
-CCS811_MEAS_MODE = const(0x01)
-CCS811_ALG_RESULT_DATA = const(0x02)
-CCS811_RAW_DATA = const(0x03)
-CCS811_ENV_DATA = const(0x05)
-CCS811_NTC = const(0x06)
-CCS811_THRESHOLDS = const(0x10)
-CCS811_BASELINE = const(0x11)
-CCS811_HW_ID = const(0x20)
-CCS811_HW_VERSION = const(0x21)
-CCS811_FW_BOOT_VERSION = const(0x23)
-CCS811_FW_APP_VERSION = const(0x24)
-CCS811_ERROR_ID = const(0xE0)
-CCS811_APP_START = const(0xF4)
-CCS811_SW_RESET = const(0xFF)
+CCS811_STATUS = 0x00
+CCS811_MEAS_MODE = 0x01
+CCS811_ALG_RESULT_DATA = 0x02
+CCS811_RAW_DATA = 0x03
+CCS811_ENV_DATA = 0x05
+CCS811_NTC = 0x06
+CCS811_THRESHOLDS = 0x10
+CCS811_BASELINE = 0x11
+CCS811_HW_ID = 0x20
+CCS811_HW_VERSION = 0x21
+CCS811_FW_BOOT_VERSION = 0x23
+CCS811_FW_APP_VERSION = 0x24
+CCS811_ERROR_ID = 0xE0
+CCS811_APP_START = 0xF4
+CCS811_SW_RESET = 0xFF
 
 # CCS811_REF_RESISTOR = const(100000)
 
 class CCS811(object):
     """ CCS811 gas sensor driver. """
 
-    def __init__(self, i2c=None):
+	def __init__(self, i2c=None):
         self.i2c = i2c
         self.addr = CCS811_ADDR
         self.tVOC = 0
