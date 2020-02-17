@@ -31,7 +31,7 @@ CCS811_SW_RESET = 0xFF
 class CCS811(object):
 
 	def __init__(self):
-        self.addr = CCS811_ADDR
+		self.addr = CCS811_ADDR
         self.tVOC = 0
         self.CO2 = 0
 
