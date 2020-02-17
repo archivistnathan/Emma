@@ -36,7 +36,7 @@ class CCS811(object):
         self.CO2 = 0
 
 	def print_error(self):
-        """Error code. """
+#		"""Error code. """
 
         error = self.bus.read_i2c_block_data(self.addr, CCS811_ERROR_ID, 1)
         message = 'Error: '
@@ -169,7 +169,7 @@ class CCS811(object):
 
 
     def readtVOC(self):
-        """ Total Volatile Organic Compound in parts per billion. """
+#         """ Total Volatile Organic Compound in parts per billion. """
 
         self.setup()
 
@@ -186,7 +186,7 @@ class CCS811(object):
                 self.print_error()
 
     def reset(self):
-        """ Initiate a software reset. """
+#        """ Initiate a software reset. """
 
         seq = bytearray([0x11, 0xE5, 0x72, 0x8A])
         self.bus.write_i2c_block_data(self.addr, CCS811_SW_RESET, seq)
