@@ -31,8 +31,7 @@ CCS811_SW_RESET = 0xFF
 class CCS811(object):
     """ CCS811 gas sensor driver. """
 
-	def __init__(self, i2c=None):
-        self.i2c = i2c
+	def __init__(self):
         self.addr = CCS811_ADDR
         self.tVOC = 0
         self.CO2 = 0
@@ -75,7 +74,7 @@ class CCS811(object):
         if not self.app_valid():
             raise ValueError('Error: App not valid')
 
-        self.i2c.writeto(self.addr, CCS811_APP_START)
+        self.bus.write_byte(self.addr, CCS811_APP_START)
 
         if self.check_for_error():
             self.print_error()
@@ -136,7 +135,7 @@ class CCS811(object):
         self.bus.write_i2c_block_data(self.addr, CCS811_MEAS_MODE, 0x00)
         time.sleep(1)
 
-        setting = self.i2c.readfrom(self.addr, CCS811_MEAS_MODE)
+        setting = self.bus.read_byte_data(self.addr, CCS811_MEAS_MODE)
         # print('Setting_start =  ', setting, setting[0])
 
         buf1 = setting[0] & (~(0b00000111 << 4))
