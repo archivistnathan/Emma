@@ -31,7 +31,7 @@ CCS811_SW_RESET = 0xFF
 class CCS811(object):
     """ CCS811 gas sensor driver. """
 
-	def __init__(self):
+	def __init__(self,1):
         self.addr = CCS811_ADDR
         self.tVOC = 0
         self.CO2 = 0
