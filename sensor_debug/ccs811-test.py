@@ -28,12 +28,8 @@ CCS811_SW_RESET = 0xFF
 
 bus.write_i2c_block_data(CCS811_ADDR, CCS811_MEAS_MODE, [0x10])
 
-value = bus.read_i2c_block_data(CCS811_ADDR, CCS811_STATUS, 1)
-print('Value_error', value)
-print(value[0] )
-
-v = ((value[0] >> 0) & 1)
-print('V error = ', v)
-
-value = bus.read_i2c_block_data(CCS811_ADDR, CCS811_STATUS, 1)
-print (value[0] << 3)
+d = self.bus.read_i2c_block_data(CCS811_ADDR, CCS811_ALG_RESULT_DATA, 4)
+co2MSB = d[0]
+co2LSB = d[1]
+print(co2MSB << 8)
+print(co2LSB)
