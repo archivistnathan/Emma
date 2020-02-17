@@ -35,7 +35,7 @@ class CCS811(object):
         self.tVOC = 0
         self.CO2 = 0
 
-    def print_error(self):
+	def print_error(self):
         """Error code. """
 
         error = self.bus.read_i2c_block_data(self.addr, CCS811_ERROR_ID, 1)
@@ -57,7 +57,7 @@ class CCS811(object):
         print(message)
 
 
-    def configure_ccs811(self):
+	def configure_ccs811(self):
         # Check that the HW id is correct
         hardware_id = self.bus.read_i2c_block_data(self.addr, CCS811_HW_ID, 1)
         # print(hardware_id)
@@ -85,7 +85,7 @@ class CCS811(object):
             self.print_error()
             raise ValueError('Error at setDriveMode.')
 
-    def setup(self):
+	def setup(self):
 
         print('Starting CCS811 Read')
         self.configure_ccs811()
