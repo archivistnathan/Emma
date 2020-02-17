@@ -26,10 +26,10 @@ CCS811_ERROR_ID = 0xE0
 CCS811_APP_START = 0xF4
 CCS811_SW_RESET = 0xFF
 
-value = bus.read_i2c_block_data(CCS811_ADDR, CCS811_STATUS, 1)
-print (value[0] << 3)
-
 bus.write_i2c_block_data(CCS811_ADDR, CCS811_MEAS_MODE, [0x10])
+
+hardware_id = bus.read_i2c_block_data(CCS811_ADDR, CCS811_HW_ID, 1)
+print(hardware_id)
 
 value = bus.read_i2c_block_data(CCS811_ADDR, CCS811_STATUS, 1)
 print (value[0] << 3)
