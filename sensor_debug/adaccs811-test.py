@@ -10,4 +10,4 @@ while not ccs811.data_ready:
 while True:
 	print("CO2: {} PPM, TVOC: {} PPB"
 		.format(ccs811.eco2, ccs811.tvoc))
-		time.sleep(0.5)
+	time.sleep(0.5)
