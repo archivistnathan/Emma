@@ -28,8 +28,16 @@ CCS811_SW_RESET = 0xFF
 
 bus.write_i2c_block_data(CCS811_ADDR, CCS811_MEAS_MODE, [0x10])
 
-d = bus.read_i2c_block_data(CCS811_ADDR, CCS811_ALG_RESULT_DATA, 4)
-co2MSB = d[0]
-co2LSB = d[1]
+co = bus.read_i2c_block_data(CCS811_ADDR, CCS811_ALG_RESULT_DATA, 4)
+co2MSB = co[0]
+co2LSB = co[1]
+print "eCO2: "
 print(co2MSB << 8)
 print(co2LSB)
+
+voc = bus.read_i2c_block_data(CCS811_ADDR, CCS811_ALG_RESULT_DATA, 4)
+tvocMSB = voc[2]
+tvocLSB = voc[3]
+print "TVOC: "
+print(tvocMSB << 8)
+print(tvocLSB)
