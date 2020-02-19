@@ -37,6 +37,7 @@ def convertToNumber(data):
  
 def readLight(addr=BHSEN):
   bus.write_byte(addr,POWER_ON)
+  time.sleep(0.5)
   data = bus.read_i2c_block_data(addr,ONE_TIME_HIGH_RES_MODE)
   return convertToNumber(data)
  
