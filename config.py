@@ -45,5 +45,11 @@ vlum_alert = 165				# Sets alert threshold for high luminosity of visible light
 uv_alert = 75					# Sets alert threshold for high UV light [mW/m2]
 accel_alert	= 0.039				# Sets alert threshold for high acceleration [abs(16g), this is just the audible alert, event logging starts at 0.014g]
 noise_alert = 50				# Sets alert threshold for high noise level [dB]
-comb_alert						# Sets alert threshold for high combustible gas level
-pol_alert						# Sets alert threshold for high pollutant gas level
+comb_alert = 0					# Sets alert threshold for high combustible gas level
+pol_alert = 0					# Sets alert threshold for high pollutant gas level
+
+# DB config
+db_host = 
+db_user = 
+db_password = 
+db_name = 
