@@ -1,4 +1,5 @@
 from smbus import SMBus
+import time
 
 I2C_ADDR = 0x40
 CMD_TRIG_TEMP_HM = 0xE3
@@ -16,11 +17,13 @@ class HTU21D:
     def read_temperature(self):
         self.reset()
         msb, lsb, crc = self.bus.read_i2c_block_data(I2C_ADDR, CMD_TRIG_TEMP_HM, 3)
+        time.sleep(1)
         return -46.85 + 175.72 * (msb * 256 + lsb) / 65536
      
     def read_humidity(self):
         self.reset()
         msb, lsb, crc = self.bus.read_i2c_block_data(I2C_ADDR, CMD_TRIG_HUMID_HM, 3)
+        time.sleep(1)
         return -6 + 125 * (msb * 256 + lsb) / 65536.0
 
     def reset(self):
