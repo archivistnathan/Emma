@@ -43,8 +43,8 @@ class HTU21D:
 		self.bus.write_byte(I2C_ADDR, CMD_RESET)
 
 humidex = HTU21D(1)
-htemp = htu.read_temperature()
-hhum = htu.read_humidity()
+htemp = humidex.read_temperature()
+hhum = humidex.read_humidity()
 htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 print "Temp: " + str(htemp) + "deg C | Hum: " + str(hhum) + "%%RH | " + htimestamp
