@@ -47,4 +47,5 @@ htemp = htu.read_temperature()
 hhum = htu.read_humidity()
 htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+print "Temp: " + str(htemp) + "deg C | Hum: " + str(hhum) + "%%RH | " + htimestamp
 	
