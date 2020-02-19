@@ -18,22 +18,22 @@ sensor_name = "Reading Room"
 
 # Select which modules are active
 
-humidex_set = TRUE
-light_set = TRUE
-accel_set = TRUE
-sound_set = TRUE
-gas_set = TRUE
-user_set = TRUE
+humidex_set = True
+light_set = True
+accel_set = True
+sound_set = True
+gas_set = True
+user_set = True
 
-# Divides user count by 2 when true for bidirectional passages
+# Divides user count by 2 when True for bidirectional passages
 
-user_bi = TRUE
+user_bi = True
 
 # Enable audible and led alerts
 
-alerts_set = TRUE
-audible_alert_set = TRUE
-led_alert_set = TRUE
+alerts_set = True
+audible_alert_set = True
+led_alert_set = True
 
 # Select threshold preferences for system alerts
 
