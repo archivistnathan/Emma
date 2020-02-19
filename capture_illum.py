@@ -71,7 +71,7 @@ class VEML6070():
  
 	def write_command(self):
 		"""Select the UV light command from the given provided values"""
-		COMMAND_CONFIG = (VEML6070_CMD_ACK_DISABLE | VEML6070_CMD_IT_4T | VEML6070_CMD_SD_DISABLE | VEML6070_CMD_RESERVED)
+		COMMAND_CONFIG = (VEML6070_CMD_IT_4T)
 		bus.write_byte(VEML6070_DEFAULT_ADDRESS, COMMAND_CONFIG)
  
 	def read_uvlight(self):
@@ -85,6 +85,7 @@ class VEML6070():
 		return {'u' : uvlight}
  
 veml6070 = VEML6070()
- 
+
+veml6070.write_command() 
 light = veml6070.read_uvlight()
 print "UV Light Level : %d" %(light['u'])
