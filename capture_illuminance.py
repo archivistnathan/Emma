@@ -40,8 +40,6 @@ def readLight(addr=BHSEN):
   data = bus.read_i2c_block_data(addr,ONE_TIME_HIGH_RES_MODE)
   return convertToNumber(data)
 
-readLight()
-readLight() 
 print "BH1750 Light Level : " + str(readLight()) + " lux"
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
