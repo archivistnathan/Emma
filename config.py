@@ -49,7 +49,7 @@ comb_alert = 0					# Sets alert threshold for high combustible gas level
 pol_alert = 0					# Sets alert threshold for high pollutant gas level
 
 # DB config
-db_host = 
-db_user = 
-db_password = 
-db_name = 
+db_host = ""
+db_user = ""
+db_password = ""
+db_name = ""
