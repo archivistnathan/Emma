@@ -30,8 +30,8 @@ ONE_TIME_HIGH_RES_MODE = 0x21 #Measurement at 0.5lux resolution
  
 bus = smbus.SMBus(1)  # Rev 2 Pi uses 1
 
-bus.write_byte(addr,POWER_ON)
-bus.write_byte(addr,RESET)
+bus.write_byte(BHSEN,POWER_ON)
+bus.write_byte(BHSEN,RESET)
 time.sleep(0.5)
 
  
