@@ -33,7 +33,8 @@ bus = smbus.SMBus(1)  # Rev 2 Pi uses 1
 
 bus.write_byte(BHSEN,POWER_ON)
 time.sleep(0.5)
-
+bus.read_i2c_block_data(BHSEN,CON_HIGH_RES_MODE)
+time.sleep(0.5)
  
 def convertToNumber(data):
   # Simple function to convert 2 bytes of data
