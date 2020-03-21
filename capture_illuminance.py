@@ -46,7 +46,9 @@ def readLight(addr=BHSEN):
   data = bus.read_i2c_block_data(addr,CON_HIGH_RES_MODE)
   return convertToNumber(data)
 
-print "BH1750 Light Level : " + str(readLight()) + " lux"
+lux_data = round(readLight(),1)
+
+print "BH1750 Light Level : " + str(lux_data) + " lux"
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get uv illuminance from VEML6070 using I2C 0x38 and 0x39
