@@ -31,9 +31,12 @@ time.sleep(0.5)
 data = bus.read_i2c_block_data(0x44, 0x00, 6)
  
 # Convert the data
-temp = data[0] * 256 + data[1]
-ctemp = -45 + (175 * temp / 65535.0)
+rawtemp = data[0] * 256 + data[1]
+ctemp = -45 + (175 * rawtemp / 65535.0)
 hum = 100 * (data[3] * 256 + data[4]) / 65535.0
+
+ctemp = round(ctemp,2)
+hum = round(hum,2)
  
 htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
