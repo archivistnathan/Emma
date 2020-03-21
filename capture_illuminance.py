@@ -96,4 +96,4 @@ veml6070 = VEML6070()
 
 veml6070.write_command() 
 light = veml6070.read_uvlight()
-print "UV Light Level :" + light['u'] + " μW/cm2"
+print "UV Light Level : %d μW/cm2" %(light['u'])
