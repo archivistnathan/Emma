@@ -40,5 +40,5 @@ hum = round(hum,2)
  
 htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-print "Temp: " + str(ctemp) + "deg C | Hum: " + str(hum) + "%%RH | " + htimestamp
+print "Temp: " + str(ctemp) + " deg C | Hum: " + str(hum) + " %RH | " + htimestamp
 	
