@@ -59,7 +59,7 @@ print "RMS Trough dB: ", rmstrough
 htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 insertval = (peaklevel,rmslevel,rmspeak,rmstrough,htimestamp,config.sensor_id)
-insertquery = "INSERT INTO soundlevel (peaklevel, rmslevel, rmspeak, rmstrough) VALUES (%s, %s, %s, %s, %s, %s)",insertval
+insertquery = "INSERT INTO soundlevel (peaklevel, rmslevel, rmspeak, rmstrough, tstamp, sensorid) VALUES (%s, %s, %s, %s, %s, %s)",insertval
 
 cursor = config.dbconnect.cursor()
 cursor.execute(*insertquery)	
