@@ -26,6 +26,9 @@ print("Humidex capture started",time.time())
 execfile('capture_illuminance.py')
 print("Illuminance capture started",time.time())
 
+execfile('capture_acceleration.py')
+print("Acceleration capture started",time.time())
+
 execfile('capture_soundlevel.py')
 print("Sound level capture started",time.time())
 
@@ -36,6 +39,9 @@ def humidex_illuminance_capture():
 	
 	execfile('capture_illuminance.py')
 	print("Illuminance captured",time.time())
+	
+	execfile('capture_acceleration.py')
+	print("Acceleration captured",time.time())
 
 @tl.job(interval=timedelta(seconds=10))
 def soundlevel_capture():
