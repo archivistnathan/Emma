@@ -26,13 +26,21 @@ print("Humidex capture started",time.time())
 execfile('capture_illuminance.py')
 print("Illuminance capture started",time.time())
 
-@tl.job(interval=timedelta(seconds=10))
-def humidex_capture():
+execfile('capture_soundlevel.py')
+print("Sound level capture started",time.time())
+
+@tl.job(interval=timedelta(minutes=1))
+def humidex_illuminance_capture():
 	execfile('capture_humidex.py')
 	print("Humidex captured ",time.time())
 	
 	execfile('capture_illuminance.py')
 	print("Illuminance captured",time.time())
+
+@tl.job(interval=timedelta(seconds=10))
+def soundlevel_capture():
+	execfile('capture_soundlevel.py')
+	print("Sound level captured ",time.time())
 
 if __name__ == "__main__":
     tl.start(block=True)
