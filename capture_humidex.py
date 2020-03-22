@@ -42,8 +42,11 @@ htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 print "Temp: " + str(ctemp) + " deg C | Hum: " + str(hum) + " %RH | " + htimestamp + " Sensor " + str(config.sensor_id)
 
-#insertval = (str(ctemp),str(hum),htimestamp,config.sensor_id)
-#insertquery = "INSERT INTO humidex (temp, hum, tstamp, sensorid)"
+insertval = (str(ctemp),str(hum),htimestamp,config.sensor_id)
+insertquery = "INSERT INTO humidex (temp, hum, tstamp, sensorid) VALUES (%s, %s, %s, %d)"
 
-#cursor = config.dbconnect.cursor()
-	
+cursor = config.dbconnect.cursor()
+cursor.execute(insertval,insertquery)	
+config.dbconnect.commit()
+print(cursor.rowcount, "Record succesfully inserted into humidex table")
+cursor.close()
