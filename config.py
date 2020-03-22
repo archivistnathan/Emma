@@ -9,6 +9,8 @@
 # email nathan@slis.upd.edu.ph
 # ------------------------------------------------------------------------------
 
+import mysql.connector
+
 # Identify sensor for database
 sensor_id = 001
 sensor_name = "Reading Room"
@@ -49,7 +51,9 @@ comb_alert = 0					# Sets alert threshold for high combustible gas level
 pol_alert = 0					# Sets alert threshold for high pollutant gas level
 
 # DB config
-db_host = ""
-db_user = ""
-db_password = ""
-db_name = ""
+db_host = "192.168.77.113"
+db_user = "pi"
+db_password = "raspberry"
+db_name = "emma"
+
+dbconnect = mysql.connector.connect(host=db_host,user=db_user,password=db_password,database=db_name)
