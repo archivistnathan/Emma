@@ -44,7 +44,7 @@ print "Temp: " + str(ctemp) + " deg C | Hum: " + str(hum) + " %RH | " + htimesta
 
 insertval = (str(ctemp),str(hum),htimestamp,config.sensor_id)
 print(insertval)
-insertquery = "INSERT INTO humidex (temp, hum, tstamp, sensorid) VALUES (%s, %s, %s, %d)"
+insertquery = "INSERT INTO humidex (temp, hum, tstamp, sensorid) VALUES (%s, %s, %s, %s)"
 
 cursor = config.dbconnect.cursor()
 cursor.execute(insertval,insertquery)	
