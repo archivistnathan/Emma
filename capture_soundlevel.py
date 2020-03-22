@@ -63,4 +63,4 @@ insertquery = "INSERT INTO soundlevel (peaklevel, rmslevel, rmspeak, rmstrough, 
 cursor = config.dbconnect.cursor()
 cursor.execute(*insertquery)	
 config.dbconnect.commit()
-print(cursor.rowcount, "Record succesfully inserted into illuminance table")
+print(cursor.rowcount, "Record succesfully inserted into soundlevel table")
