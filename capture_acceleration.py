@@ -85,11 +85,7 @@ while True:
 	Gx = gyro_x/131.0
 	Gy = gyro_y/131.0
 	Gz = gyro_z/131.0
-
-        #Temperature raw value
-	temp_raw = read_raw_data(TEMP_OUT)
-	tempC = (temp_raw / 340.0) + 36.53
 	
 
-	print ("Gx=%.3f deg/s | " %Gx + "Gy=%.3f deg/s | " %Gy + "Gz=%.3f deg/s || " %Gz + "Ax=%.3f g | " %Ax + "Ay=%.3f g | " %Ay + "Az=%.3f g" %Az + "|| Temp: %.2f degC" %tempC) 	
+	print ("Gx=%.3f deg/s | " %Gx + "Gy=%.3f deg/s | " %Gy + "Gz=%.3f deg/s || " %Gz + "Ax=%.3f g | " %Ax + "Ay=%.3f g | " %Ay + "Az=%.3f g" %Az) 	
 	sleep(1)
