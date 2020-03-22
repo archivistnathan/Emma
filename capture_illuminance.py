@@ -12,8 +12,9 @@
 # ------------------------------------------------------------------------------
 
 # import libraries for GPIO and I2C
+import config
 import smbus
-import time
+import time, datetime
 import os
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
@@ -95,4 +96,16 @@ veml6070 = VEML6070()
 
 veml6070.write_command() 
 uvl = veml6070.read_uvlight()
-print "UV Light Level : %d microWatts per square cm" %(uvl['u'])
+uv_data = uvl['u']
+print "UV Light Level : %d microWatts per square cm" %uv_data
+
+htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+insertval = (lux_data,uv_data,htimestamp,config.sensor_id)
+insertquery = "INSERT INTO illuminance (vlum, uvl, tstamp, sensorid) VALUES (%s, %s, %s, %s)",insertval
+
+cursor = config.dbconnect.cursor()
+cursor.execute(*insertquery)	
+config.dbconnect.commit()
+print(cursor.rowcount, "Record succesfully inserted into illuminance table")
+cursor.close()
