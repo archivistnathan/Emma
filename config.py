@@ -51,7 +51,7 @@ comb_alert = 0					# Sets alert threshold for high combustible gas level
 pol_alert = 0					# Sets alert threshold for high pollutant gas level
 
 # DB config
-db_host = "192.168.77.113"
+db_host = "localhost"
 db_user = "pi"
 db_password = "raspberry"
 db_name = "emma"
