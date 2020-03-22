@@ -14,8 +14,7 @@
 #!/usr/bin/python
 import config
 import smbus
-import datetime
-import struct, array, time, io, fcntl
+import time, datetime
  
 # Get I2C bus
 bus = smbus.SMBus(1)
