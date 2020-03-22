@@ -23,10 +23,16 @@ tl = Timeloop()
 execfile('capture_humidex.py')
 print("Humidex capture started",time.time())
 
-@tl.job(interval=timedelta(minutes=10))
+execfile('capture_illuminance.py')
+print("Illuminance capture started",time.time())
+
+@tl.job(interval=timedelta(seconds=10))
 def humidex_capture():
 	execfile('capture_humidex.py')
 	print("Humidex captured ",time.time())
+	
+	execfile('capture_illuminance.py')
+	print("Illuminance captured",time.time())
 
 if __name__ == "__main__":
     tl.start(block=True)
