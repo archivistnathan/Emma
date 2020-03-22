@@ -16,8 +16,6 @@ import smbus			#import SMBus module of I2C
 import math				#import math for calculation resultant acceleration
 import time, datetime
 
-start_time = time.time()
-
 #some MPU6050 Registers and their Address
 PWR_MGMT_1   = 0x6B
 SMPLRT_DIV   = 0x19
@@ -102,5 +100,3 @@ config.dbconnect.commit()
 print(cursor.rowcount, "Record succesfully inserted into acceleration table")
 cursor.close()
 config.dbconnect.close()
-
-print("--- %s seconds ---" % (time.time() - start_time))
