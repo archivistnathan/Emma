@@ -11,6 +11,7 @@
 # email nathan@slis.upd.edu.ph
 # ------------------------------------------------------------------------------
 
+import config
 import smbus			#import SMBus module of I2C
 import math				#import math for calculation resultant acceleration
 import time, datetime
@@ -85,6 +86,17 @@ Ar = math.sqrt(math.pow(Ax,2)+math.pow(Ay,2)+math.pow(Az,2))
 Gx = gyro_x/131.0
 Gy = gyro_y/131.0
 Gz = gyro_z/131.0
-	
 
 print ("Gx=%.3f deg/s | " %Gx + "Gy=%.3f deg/s | " %Gy + "Gz=%.3f deg/s || " %Gz + "Ax=%.3f g | " %Ax + "Ay=%.3f g | " %Ay + "Az=%.3f g | " %Az + "Ar=%.3f g" %Ar) 	
+
+htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+insertval = (Ax,Ay,Az,Ar,htimestamp,config.sensor_id)
+insertquery = "INSERT INTO acceleration (ax, ay, az, ar, tstamp, sensorid) VALUES (%s, %s, %s, %s, %s, %s)",insertval
+
+cursor = config.dbconnect.cursor()
+cursor.execute(*insertquery)	
+config.dbconnect.commit()
+print(cursor.rowcount, "Record succesfully inserted into acceleration table")
+cursor.close()
+config.dbconnect.close()
