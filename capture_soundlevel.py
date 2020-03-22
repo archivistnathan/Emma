@@ -22,7 +22,6 @@ import subprocess
 import re
 import config
 import time, datetime
-print(datetime.now())
 
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
