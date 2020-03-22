@@ -32,7 +32,6 @@ ONE_TIME_HIGH_RES_MODE = 0x21 # Measurement at 0.5lux resolution
 bus = smbus.SMBus(1)  # Rev 2 Pi uses 1
 
 bus.write_byte(BHSEN,POWER_ON)
-time.sleep(0.5)
 bus.read_i2c_block_data(BHSEN,CON_HIGH_RES_MODE)
 time.sleep(0.5)
  
@@ -95,5 +94,5 @@ class VEML6070():
 veml6070 = VEML6070()
 
 veml6070.write_command() 
-light = veml6070.read_uvlight()
-print "UV Light Level : %d microWatts per square cm" %(light['u'])
+uvl = veml6070.read_uvlight()
+print "UV Light Level : %d microWatts per square cm" %(uvl['u'])
