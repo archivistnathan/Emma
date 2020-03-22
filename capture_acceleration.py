@@ -12,7 +12,8 @@
 # ------------------------------------------------------------------------------
 
 import smbus			#import SMBus module of I2C
-from time import sleep          #import
+import math				#import math for calculation resultant acceleration
+import time, datetime
 
 #some MPU6050 Registers and their Address
 PWR_MGMT_1   = 0x6B
@@ -64,28 +65,26 @@ Device_Address = 0x68   # MPU6050 device address
 MPU_Init()
 
 print (" Reading Data of Gyroscope and Accelerometer")
+	
+#Read Accelerometer raw value
+acc_x = read_raw_data(ACCEL_XOUT_H)
+acc_y = read_raw_data(ACCEL_YOUT_H)
+acc_z = read_raw_data(ACCEL_ZOUT_H)
 
-while True:
-	
-	#Read Accelerometer raw value
-	acc_x = read_raw_data(ACCEL_XOUT_H)
-	acc_y = read_raw_data(ACCEL_YOUT_H)
-	acc_z = read_raw_data(ACCEL_ZOUT_H)
-	
-	#Read Gyroscope raw value
-	gyro_x = read_raw_data(GYRO_XOUT_H)
-	gyro_y = read_raw_data(GYRO_YOUT_H)
-	gyro_z = read_raw_data(GYRO_ZOUT_H)
-	
-	#Full scale range +/- 250 degree/C as per sensitivity scale factor
-	Ax = acc_x/16384.0
-	Ay = acc_y/16384.0
-	Az = acc_z/16384.0
-	
-	Gx = gyro_x/131.0
-	Gy = gyro_y/131.0
-	Gz = gyro_z/131.0
+#Read Gyroscope raw value
+gyro_x = read_raw_data(GYRO_XOUT_H)
+gyro_y = read_raw_data(GYRO_YOUT_H)
+gyro_z = read_raw_data(GYRO_ZOUT_H)
+
+#Full scale range +/- 250 degree/C as per sensitivity scale factor
+Ax = acc_x/16384.0
+Ay = acc_y/16384.0
+Az = acc_z/16384.0
+Ar = math.sqrt(math.pow(Ax,2)+math.pow(Ay,2)+math.pow(Az,2))
+
+Gx = gyro_x/131.0
+Gy = gyro_y/131.0
+Gz = gyro_z/131.0
 	
 
-	print ("Gx=%.3f deg/s | " %Gx + "Gy=%.3f deg/s | " %Gy + "Gz=%.3f deg/s || " %Gz + "Ax=%.3f g | " %Ax + "Ay=%.3f g | " %Ay + "Az=%.3f g" %Az) 	
-	sleep(1)
+print ("Gx=%.3f deg/s | " %Gx + "Gy=%.3f deg/s | " %Gy + "Gz=%.3f deg/s || " %Gz + "Ax=%.3f g | " %Ax + "Ay=%.3f g | " %Ay + "Az=%.3f g" %Az) 	
