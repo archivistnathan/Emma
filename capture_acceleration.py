@@ -87,4 +87,4 @@ Gy = gyro_y/131.0
 Gz = gyro_z/131.0
 	
 
-print ("Gx=%.3f deg/s | " %Gx + "Gy=%.3f deg/s | " %Gy + "Gz=%.3f deg/s || " %Gz + "Ax=%.3f g | " %Ax + "Ay=%.3f g | " %Ay + "Az=%.3f g | " %Az + "Ar=%.3f g | " %Ar) 	
+print ("Gx=%.3f deg/s | " %Gx + "Gy=%.3f deg/s | " %Gy + "Gz=%.3f deg/s || " %Gz + "Ax=%.3f g | " %Ax + "Ay=%.3f g | " %Ay + "Az=%.3f g | " %Az + "Ar=%.3f g" %Ar) 	
