@@ -57,7 +57,7 @@ db_name = "emma"
 import mysql.connector
 
 def dbinsert(insertquery):
-	dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
+	dbconnect = mysql.connector.connect(host=db_host,user=db_user,password=db_password,database=db_name)
 
 	cursor = dbconnect.cursor()
 	cursor.execute(*insertquery)	
