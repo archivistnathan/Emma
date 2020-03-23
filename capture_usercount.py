@@ -5,6 +5,7 @@ import threading
 
 GPIO.setmode(GPIO.BCM)
 MCW_PIN=14
+GPIO.cleanup()
 
 GPIO.setup(MCW_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
