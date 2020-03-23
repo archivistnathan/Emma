@@ -25,6 +25,8 @@ def MCWMOTION(MCW_PIN):
 def countingthread():
 	try:
 		GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
+		while 1:
+			time.sleep(100)
 	except:
 		GPIO.cleanup()
 		print "User monitoring stopped"
