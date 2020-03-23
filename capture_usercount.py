@@ -28,9 +28,5 @@ def countingthread():
 		while 1:
 			time.sleep(100)
 
-print "User Count Module Test"
-time.sleep(2)
-print "Ready"
-
 thread = threading.Thread(target=countingthread,daemon=True)
 thread.start()
