@@ -32,5 +32,5 @@ print "User Count Module Test"
 time.sleep(2)
 print "Ready"
 
-thread=threading.Thread(target=countingthread,daemon=True)
+thread = threading.Thread(target=countingthread,daemon=True)
 thread.start()
