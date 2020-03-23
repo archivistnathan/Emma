@@ -34,23 +34,21 @@ print("Acceleration capture started")
 execfile('capture_soundlevel.py')
 print("Sound level capture started")
 
-# start threads outside of the timeloop by calling their respective files here
-
-	# SPI based gas monitoring
-
-	# GPIO state based user count
+# start thread outside of the timeloop for GPIO state based user count
 import capture_usercount
-
 
 # time sensor data capture via timeloop
 
-@tl.job(interval=timedelta(minutes=1))
+@tl.job(interval=timedelta(minutes=10))
 def humidex_illuminance_capture():
 	execfile('capture_humidex.py')
 	print("Humidex captured ")
 	
 	execfile('capture_illuminance.py')
 	print("Illuminance captured")
+
+@tl.job(interval=timedelta(microseconds=50000))
+def acceleration_capture():
 	
 	execfile('capture_acceleration.py')
 	print("Acceleration captured")
