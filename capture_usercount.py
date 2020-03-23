@@ -27,7 +27,7 @@ def countingthread():
 		GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
 		while 1:
 			time.sleep(100)
-			
+
 print "User Count Module Test"
 time.sleep(2)
 print "Ready"
