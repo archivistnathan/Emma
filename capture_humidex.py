@@ -15,6 +15,7 @@
 import config
 import smbus
 import time, datetime
+import mysql.connector
  
 # Get I2C bus
 bus = smbus.SMBus(1)
@@ -44,9 +45,11 @@ print "Temp: " + str(ctemp) + " deg C | Hum: " + str(hum) + " %RH | " + htimesta
 insertval = (str(ctemp),str(hum),htimestamp,config.sensor_id)
 insertquery = "INSERT INTO humidex (temp, hum, tstamp, sensorid) VALUES (%s, %s, %s, %s)",insertval
 
-cursor = config.dbconnect.cursor()
+dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
+
+cursor = dbconnect.cursor()
 cursor.execute(*insertquery)	
-config.dbconnect.commit()
+dbconnect.commit()
 print(cursor.rowcount, "Record succesfully inserted into humidex table")
 cursor.close()
-config.dbconnect.close()
+dbconnect.close()

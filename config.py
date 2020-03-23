@@ -9,8 +9,6 @@
 # email nathan@slis.upd.edu.ph
 # ------------------------------------------------------------------------------
 
-import mysql.connector
-
 # Identify sensor for database
 sensor_id = 001
 sensor_name = "Reading Room"
