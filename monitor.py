@@ -12,7 +12,6 @@
 # import configuration file and required libraries
 import config
 import time
-import threading
 from timeloop import Timeloop
 from datetime import timedelta
 
@@ -35,12 +34,12 @@ print("Acceleration capture started",time.time())
 execfile('capture_soundlevel.py')
 print("Sound level capture started",time.time())
 
-# start threads outside of the timeloop here
+# start threads outside of the timeloop by calling their respective files here
 
 	# SPI based gas monitoring
 
 	# GPIO state based user count
-
+import capture_usercount
 
 
 # time sensor data capture via timeloop
