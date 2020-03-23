@@ -106,11 +106,11 @@ class MQ():
     ############################################################################ 
     def MQCalibration(self, mq_pin):
         val = 0.0
-        for i in range(self.CALIBARAION_SAMPLE_TIMES):          # take multiple samples
+        for i in range(self.CALIBRATION_SAMPLE_TIMES):          # take multiple samples
             val += self.MQResistanceCalculation(self.adc.read(mq_pin))
             time.sleep(self.CALIBRATION_SAMPLE_INTERVAL/1000.0)
             
-        val = val/self.CALIBARAION_SAMPLE_TIMES                 # calculate the average value
+        val = val/self.CALIBRATION_SAMPLE_TIMES                 # calculate the average value
 
         val = val/self.RO_CLEAN_AIR_FACTOR                      # divided by RO_CLEAN_AIR_FACTOR yields the Ro 
                                                                 # according to the chart in the datasheet 
