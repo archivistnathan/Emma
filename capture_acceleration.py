@@ -60,7 +60,7 @@ def read_raw_data(addr):
         return value
 
 
-bus = smbus.SMBus(1) 	# software implemented I2C for higher sampling rate
+bus = smbus.SMBus(3) 	# software implemented I2C for higher sampling rate
 Device_Address = 0x68   # MPU6050 device address
 
 MPU_Init()
