@@ -39,6 +39,7 @@ import capture_usercount
 
 # time sensor data capture via timeloop
 
+# Humidex and Illuminance, minimum frequency 1 second
 @tl.job(interval=timedelta(minutes=10))
 def humidex_illuminance_capture():
 	execfile('capture_humidex.py')
@@ -47,11 +48,13 @@ def humidex_illuminance_capture():
 	execfile('capture_illuminance.py')
 	print("Illuminance captured")
 
-@tl.job(interval=timedelta(seconds=1))
+# Acceleration, minimum frequency 1 second
+@tl.job(interval=timedelta(seconds=10))
 def acceleration_capture():
 	execfile('capture_acceleration.py')
 	print("Acceleration captured")
 
+# Sound level, minimum frequency 10 seconds
 @tl.job(interval=timedelta(seconds=10))
 def soundlevel_capture():
 	execfile('capture_soundlevel.py')
