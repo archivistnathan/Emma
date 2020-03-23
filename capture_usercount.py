@@ -28,6 +28,6 @@ def MCWMOTION(MCW_PIN):
 
 GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
 
-print "User Count Module Test"
+print "Initiating User Count Module"
 time.sleep(2)
 print "Monitoring user count"
