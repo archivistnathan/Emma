@@ -53,3 +53,13 @@ db_host = "localhost"
 db_user = "pi"
 db_password = "raspberry"
 db_name = "emma"
+
+def dbinsert(insertquery):
+	dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
+
+	cursor = dbconnect.cursor()
+	cursor.execute(*insertquery)	
+	dbconnect.commit()
+	print(cursor.rowcount, "Record succesfully inserted into table")
+	cursor.close()
+	dbconnect.close()
