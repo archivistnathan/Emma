@@ -24,8 +24,7 @@ def MCWMOTION(MCW_PIN):
 	cursor.close()
 
 def countingthread():
-	while True:
-		GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
+	GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
 
 thread = threading.Thread(target=countingthread)
 thread.start()
