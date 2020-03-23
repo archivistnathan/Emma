@@ -49,16 +49,16 @@ def humidex_illuminance_capture():
 	print("Illuminance captured")
 
 # Acceleration, minimum frequency 1 second
-@tl.job(interval=timedelta(seconds=10))
-def acceleration_capture():
-	execfile('capture_acceleration.py')
-	print("Acceleration captured")
+#@tl.job(interval=timedelta(seconds=10))
+#def acceleration_capture():
+#	execfile('capture_acceleration.py')
+#	print("Acceleration captured")
 
 # Sound level, minimum frequency 10 seconds
-@tl.job(interval=timedelta(seconds=10))
-def soundlevel_capture():
-	execfile('capture_soundlevel.py')
-	print("Sound level captured ")
+#@tl.job(interval=timedelta(seconds=10))
+#def soundlevel_capture():
+#	execfile('capture_soundlevel.py')
+#	print("Sound level captured ")
 
 if __name__ == "__main__":
     tl.start(block=True)
