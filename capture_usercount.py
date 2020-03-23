@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time, datetime
 import config
+import threading
 
 GPIO.setmode(GPIO.BCM)
 MCW_PIN=14
@@ -25,11 +26,11 @@ print "User Count Module Test"
 time.sleep(2)
 print "Ready"
 
-try:
-	GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
-	while 1:
-		time.sleep(100)
-except KeyboardInterrupt:
-	print "Quit."
-	print " Final Microwave user count: ",mcwusercount
-	GPIO.cleanup()
+def countingthread():
+	try:
+		GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
+		while 1:
+			time.sleep(100)
+
+thread = threading.Thread(target=countingthread,daemon=True)
+thread.start()
