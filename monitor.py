@@ -49,7 +49,6 @@ def humidex_illuminance_capture():
 
 @tl.job(interval=timedelta(microseconds=50000))
 def acceleration_capture():
-	
 	execfile('capture_acceleration.py')
 	print("Acceleration captured")
 
