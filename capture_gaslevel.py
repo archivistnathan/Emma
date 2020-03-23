@@ -9,14 +9,21 @@ import threading
 # Calibrate sensor and determine Ro
 mq = MQ();
 
+# Thread control
+readgas = 1
+
 # Read data
 def readgaslevel():
-	while 1:
+	while (global readgas == 1):
 		perc = mq.MQPercentage()
 		print("LPG: %g ppm, CO: %g ppm, Smoke: %g ppm" % (perc["GAS_LPG"], perc["CO"], perc["SMOKE"]))
 		time.sleep(0.1)
 
 print "Gas level monitoring started"
 
-thread = threading.Thread(target=readgaslevel,daemon = True)
-thread.start()
+try:
+	thread = threading.Thread(target=readgaslevel)
+	thread.start()
+except KeyboardInterrupt:
+	readgas == 0
+	print "Gas level monitoring stopped"
