@@ -16,7 +16,6 @@ import config
 import smbus
 import time, datetime
 import os
-import mysql.connector
 
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 # get visible illuminance from BH1750 using I2C 0x23
@@ -105,11 +104,4 @@ htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 insertval = (lux_data,uv_data,htimestamp,config.sensor_id)
 insertquery = "INSERT INTO illuminance (vlum, uvl, tstamp, sensorid) VALUES (%s, %s, %s, %s)",insertval
 
-dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
-
-cursor = dbconnect.cursor()
-cursor.execute(*insertquery)	
-dbconnect.commit()
-print(cursor.rowcount, "Record succesfully inserted into illuminance table")
-cursor.close()
-dbconnect.close()
+config.dbinsert(insertquery)

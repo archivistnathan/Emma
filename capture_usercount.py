@@ -1,8 +1,6 @@
 import RPi.GPIO as GPIO
 import time, datetime
 import config
-import threading
-import mysql.connector
 
 GPIO.setmode(GPIO.BCM)
 MCW_PIN=14
@@ -17,14 +15,7 @@ def MCWMOTION(MCW_PIN):
 	insertval = (htimestamp,config.sensor_id)
 	insertquery = "INSERT INTO usercount (tstamp, sensorid) VALUES (%s, %s)",insertval
 
-	dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
-
-	cursor = dbconnect.cursor()
-	cursor.execute(*insertquery)	
-	dbconnect.commit()
-	print(cursor.rowcount, "Record succesfully inserted into usercount table")
-	cursor.close()
-	dbconnect.close()
+	config.dbinsert(insertquery)
 
 GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
 

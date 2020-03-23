@@ -15,7 +15,6 @@ import config
 import smbus			#import SMBus module of I2C
 import math				#import math for calculation resultant acceleration
 import time, datetime
-import mysql.connector
 
 #some MPU6050 Registers and their Address
 PWR_MGMT_1   = 0x6B

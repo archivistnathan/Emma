@@ -22,7 +22,6 @@ import subprocess
 import re
 import config
 import time, datetime
-import mysql.connector
 
 # Record a 1s audio clip
 subprocess.call(["arecord", "-D", "plughw:1,0", "-qd", "1", "monitor.wav"])
@@ -61,11 +60,4 @@ htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 insertval = (peaklevel,rmslevel,rmspeak,rmstrough,htimestamp,config.sensor_id)
 insertquery = "INSERT INTO soundlevel (peaklevel, rmslevel, rmspeak, rmstrough, tstamp, sensorid) VALUES (%s, %s, %s, %s, %s, %s)",insertval
 
-dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
-
-cursor = dbconnect.cursor()
-cursor.execute(*insertquery)	
-dbconnect.commit()
-print(cursor.rowcount, "Record succesfully inserted into soundlevel table")
-cursor.close()
-dbconnect.close()
+config.dbinsert(insertquery)
