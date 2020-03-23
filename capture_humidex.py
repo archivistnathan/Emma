@@ -15,7 +15,6 @@
 import config
 import smbus
 import time, datetime
-import mysql.connector
  
 # Get I2C bus
 bus = smbus.SMBus(1)
