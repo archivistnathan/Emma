@@ -22,13 +22,15 @@ def MCWMOTION(MCW_PIN):
 	print(cursor.rowcount, "Record succesfully inserted into usercount table")
 	cursor.close()
 
-print "User Count Module Test"
-time.sleep(2)
-print "Ready"
-
 def countingthread():
 	try:
 		GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
+		while 1:
+			time.sleep(100)
+			
+print "User Count Module Test"
+time.sleep(2)
+print "Ready"
 
 thread = threading.Thread(target=countingthread,daemon=True)
 thread.start()
