@@ -12,14 +12,11 @@ mq = MQ();
 # Read data
 def readgaslevel():
 	while 1:
-		try:
-			perc = mq.MQPercentage()
-			print("LPG: %g ppm, CO: %g ppm, Smoke: %g ppm" % (perc["GAS_LPG"], perc["CO"], perc["SMOKE"]))
-			time.sleep(0.1)
-		except KeyboardInterrupt:
-			print "Gas level monitoring stopped"
-			break
+		perc = mq.MQPercentage()
+		print("LPG: %g ppm, CO: %g ppm, Smoke: %g ppm" % (perc["GAS_LPG"], perc["CO"], perc["SMOKE"]))
+		time.sleep(0.1)
+
 print "Gas level monitoring started"
 
-thread = threading.Thread(target=readgaslevel)
+thread = threading.Thread(target=readgaslevel,daemon = True)
 thread.start()
