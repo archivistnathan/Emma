@@ -54,6 +54,8 @@ db_user = "pi"
 db_password = "raspberry"
 db_name = "emma"
 
+import mysql.connector
+
 def dbinsert(insertquery):
 	dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
 
