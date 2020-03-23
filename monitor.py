@@ -23,16 +23,16 @@ tl = Timeloop()
 # initial sensor data capture
 
 execfile('capture_humidex.py')
-print("Humidex capture started",time.time())
+print("Humidex capture started")
 
 execfile('capture_illuminance.py')
-print("Illuminance capture started",time.time())
+print("Illuminance capture started")
 
 execfile('capture_acceleration.py')
-print("Acceleration capture started",time.time())
+print("Acceleration capture started")
 
 execfile('capture_soundlevel.py')
-print("Sound level capture started",time.time())
+print("Sound level capture started")
 
 # start threads outside of the timeloop by calling their respective files here
 
