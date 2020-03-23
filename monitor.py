@@ -44,7 +44,7 @@ import capture_usercount
 def humidex_illuminance_capture():
 	execfile('capture_humidex.py')
 	print("Humidex captured ")
-	
+	time.sleep(0.5)
 	execfile('capture_illuminance.py')
 	print("Illuminance captured")
 
