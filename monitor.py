@@ -34,7 +34,7 @@ print("Acceleration capture started")
 execfile('capture_soundlevel.py')
 print("Sound level capture started")
 
-# start thread outside of the timeloop for GPIO state based user count
+# start outside of the timeloop for GPIO state based user count
 import capture_usercount
 
 # time sensor data capture via timeloop
