@@ -95,8 +95,11 @@ htimestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 insertval = (Ax,Ay,Az,Ar,htimestamp,config.sensor_id)
 insertquery = "INSERT INTO acceleration (ax, ay, az, ar, tstamp, sensorid) VALUES (%s, %s, %s, %s, %s, %s)",insertval
 
-cursor = config.dbconnect.cursor()
+dbconnect = mysql.connector.connect(host=config.db_host,user=config.db_user,password=config.db_password,database=config.db_name)
+
+cursor = dbconnect.cursor()
 cursor.execute(*insertquery)	
-config.dbconnect.commit()
+dbconnect.commit()
 print(cursor.rowcount, "Record succesfully inserted into acceleration table")
 cursor.close()
+dbconnect.close()
