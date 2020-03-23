@@ -23,13 +23,9 @@ def MCWMOTION(MCW_PIN):
 	cursor.close()
 
 def countingthread():
-	try:
-		GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
-		while 1:
-			time.sleep(100) #This prevents double readings, adjust for sensitivity
-	except:
-		GPIO.cleanup()
-		print "User monitoring stopped"
+	GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
+	while 1:
+		time.sleep(100) #This prevents double readings, adjust for sensitivity
 
 print "User Count Module Test"
 time.sleep(2)
