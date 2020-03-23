@@ -29,8 +29,6 @@ print "Ready"
 def countingthread():
 	try:
 		GPIO.add_event_detect(MCW_PIN,GPIO.RISING,callback=MCWMOTION)
-		while 1:
-			time.sleep(100)
 
 thread = threading.Thread(target=countingthread,daemon=True)
 thread.start()
