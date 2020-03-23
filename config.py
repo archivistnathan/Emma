@@ -55,5 +55,3 @@ db_host = "localhost"
 db_user = "pi"
 db_password = "raspberry"
 db_name = "emma"
-
-dbconnect = mysql.connector.connect(host=db_host,user=db_user,password=db_password,database=db_name)
