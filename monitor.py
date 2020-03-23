@@ -12,6 +12,7 @@
 # import configuration file and required libraries
 import config
 import time
+import threading
 from timeloop import Timeloop
 from datetime import timedelta
 
@@ -19,6 +20,8 @@ from datetime import timedelta
 # https://medium.com/greedygame-engineering/an-elegant-way-to-run-periodic-tasks-in-python-61b7c477b679
 
 tl = Timeloop()
+
+# initial sensor data capture
 
 execfile('capture_humidex.py')
 print("Humidex capture started",time.time())
@@ -32,21 +35,31 @@ print("Acceleration capture started",time.time())
 execfile('capture_soundlevel.py')
 print("Sound level capture started",time.time())
 
+# start threads outside of the timeloop here
+
+	# SPI based gas monitoring
+
+	# GPIO state based user count
+
+
+
+# time sensor data capture via timeloop
+
 @tl.job(interval=timedelta(minutes=1))
 def humidex_illuminance_capture():
 	execfile('capture_humidex.py')
-	print("Humidex captured ",time.time())
+	print("Humidex captured ")
 	
 	execfile('capture_illuminance.py')
-	print("Illuminance captured",time.time())
+	print("Illuminance captured")
 	
 	execfile('capture_acceleration.py')
-	print("Acceleration captured",time.time())
+	print("Acceleration captured")
 
 @tl.job(interval=timedelta(seconds=10))
 def soundlevel_capture():
 	execfile('capture_soundlevel.py')
-	print("Sound level captured ",time.time())
+	print("Sound level captured ")
 
 if __name__ == "__main__":
     tl.start(block=True)
