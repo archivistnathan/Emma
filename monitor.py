@@ -41,10 +41,12 @@ import capture_usercount
 
 # Humidex and Illuminance, minimum frequency 1 second
 @tl.job(interval=timedelta(minutes=1))
-def humidex_illuminance_capture():
+def humidex_capture():
 	execfile('capture_humidex.py')
 	print("Humidex captured ")
-	time.sleep(0.5)
+
+@tl.job(interval=timedelta(minutes=1))
+def illuminance_capture():
 	execfile('capture_illuminance.py')
 	print("Illuminance captured")
 
