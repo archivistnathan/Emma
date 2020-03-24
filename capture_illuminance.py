@@ -33,7 +33,7 @@ ONE_TIME_HIGH_RES_MODE = 0x21 # Measurement at 0.5lux resolution
 bus = smbus.SMBus(4)
 
 bus.write_byte(BHSEN,POWER_ON)
-time.sleep(0.1)
+time.sleep(0.5)
 bus.read_i2c_block_data(BHSEN,CON_HIGH_RES_MODE)
 time.sleep(0.1)
 
