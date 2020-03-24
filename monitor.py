@@ -43,7 +43,7 @@ import capture_usercount
 #@tl.job(interval=timedelta(minutes=1))
 #def humidex_capture():
 #	execfile('capture_humidex.py')
-#ß	print("Humidex captured ")
+#	print("Humidex captured ")
 
 @tl.job(interval=timedelta(minutes=0.5))
 def illuminance_capture():
