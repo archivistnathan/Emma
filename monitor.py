@@ -45,7 +45,7 @@ def humidex_capture():
 	execfile('capture_humidex.py')
 	print("Humidex captured ")
 
-@tl.job(interval=timedelta(minutes=1))
+@tl.job(interval=timedelta(minutes=0.5))
 def illuminance_capture():
 	execfile('capture_illuminance.py')
 	print("Illuminance captured")
