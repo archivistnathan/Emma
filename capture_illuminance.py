@@ -32,7 +32,22 @@ ONE_TIME_HIGH_RES_MODE = 0x21 # Measurement at 0.5lux resolution
  
 bus = smbus.SMBus(4)
 
-lux_data=0
+bus.write_byte(BHSEN,POWER_ON)
+time.sleep(0.5)
+bus.read_i2c_block_data(BHSEN,CON_HIGH_RES_MODE)
+time.sleep(0.1)
+
+def convertToNumber(data):
+  # Simple function to convert 2 bytes of data
+  # into a decimal number
+  return ((data[1] + (256 * data[0])) / 1.2)
+ 
+def readLight(addr=BHSEN):
+  # bus.write_byte(addr,POWER_ON)
+  data = bus.read_i2c_block_data(addr,CON_HIGH_RES_MODE)
+  return convertToNumber(data)
+
+lux_data = round(readLight(),1)
 
 print "BH1750 Light Level : " + str(lux_data) + " lux"
 
