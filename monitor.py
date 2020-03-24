@@ -40,10 +40,10 @@ import capture_usercount
 # time sensor data capture via timeloop
 
 # Humidex and Illuminance, minimum frequency 1 second
-@tl.job(interval=timedelta(minutes=1))
-def humidex_capture():
-	execfile('capture_humidex.py')
-	print("Humidex captured ")
+#@tl.job(interval=timedelta(minutes=1))
+#def humidex_capture():
+#	execfile('capture_humidex.py')
+#ß	print("Humidex captured ")
 
 @tl.job(interval=timedelta(minutes=0.5))
 def illuminance_capture():
