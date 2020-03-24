@@ -17,7 +17,7 @@ import smbus
 import time, datetime
  
 # Get I2C bus
-bus = smbus.SMBus(1)
+bus = smbus.SMBus(3)
  
 # SHT31 address, 0x44(68)
 bus.write_i2c_block_data(0x44, 0x2C, [0x06])

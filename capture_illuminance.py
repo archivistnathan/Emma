@@ -30,7 +30,7 @@ RESET      = 0x07 # Reset data register value
 CON_HIGH_RES_MODE = 0x11 # Continuous Measurement at 0.5lux resolution
 ONE_TIME_HIGH_RES_MODE = 0x21 # Measurement at 0.5lux resolution
  
-bus = smbus.SMBus(1)
+bus = smbus.SMBus(4)
 
 bus.write_byte(BHSEN,POWER_ON)
 time.sleep(0.1)
