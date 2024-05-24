@@ -1,5 +1,14 @@
 # Environmental Monitoring and Management for Archives
 
+> [!NOTE]
+> The proliferation of low cost all-in-one solutions has rendered this project obsolete. Please refer to the list of alternative devices instead.
+
+## Alternative Devices
++ [Enviro Indoor](https://shop.pimoroni.com/products/enviro-indoor?variant=40055644717139) - this is a stand-alone solution that monitors temperature, humidity, pressure, VOCs, VSCs, light intensity, and CO2 via a optional sensor. The use of the lower powered Pico W solves the power and heat issues of the original project.
++ [Enviro Urban](https://shop.pimoroni.com/products/enviro-urban?variant=40056508252243) - another Enviro variant which monitors temperature, humidity, pressure, and particulate matter concentration.
++ [Pico Enviro+](https://shop.pimoroni.com/products/pico-enviro-pack?variant=40045073662035) - this requires a separate Pico or Pico W but offers an on-board screen for reading values
++ Elitech USB Data Loggers (https://www.amazon.co.uk/s?srs=94209968031) - I am still experimenting with these so I do not formally endorse them. However, they are cheap options if you only need to log the temperature and humidity and don't want to mess around with Python.
+
 ## Introduction
 
 The Environmental Monitoring and Management for Archives (EMMA) project aims to develop an open source, low-cost, low maintenance system to monitor vital environmental statistics to aid in the preservation of archives. With a target cost of around £100, EMMA is not intended to have the same feature set as currently available data loggers but is instead aimed at small cultural heritage centres and institutions will archival stores that do not have ready access to calibration equipment or expensive environmental monitors. EMMA is intended to serve as an early warning device to inform conservation decisions and to potentially initiate necessary remedial action earlier that would otherwise be the case once an issue has been identified.
